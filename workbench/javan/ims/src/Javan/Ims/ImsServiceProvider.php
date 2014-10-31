@@ -28,7 +28,16 @@ class ImsServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		//
+		$this->app['ims'] = $this->app->share(function($app)
+		{
+			return new Ims;
+		});
+
+		$this->app->booting(function()
+		{
+		  	$loader = \Illuminate\Foundation\AliasLoader::getInstance();
+		  	$loader->alias('Ims', 'Javan\Ims\Facades\Ims');
+		});
 	}
 
 	/**
