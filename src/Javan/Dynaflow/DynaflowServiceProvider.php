@@ -18,7 +18,8 @@ class DynaflowServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('javan/dynaflow');
+		$this->package('javan/dynaflow', 'doctrine', __DIR__ . '/..');
+		include __DIR__.'/../../routes.php';
 	}
 
 	/**
@@ -28,7 +29,23 @@ class DynaflowServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		//
+		$this->app['dynaflow'] = $this->app->share(function($app)
+	  	{
+	    	return new Dynaflow;
+	  	});
+
+	  	$this->app->bind('Javan\Dynaflow\Application\Container', 'Javan\Dynaflow\Application\LaravelContainer');
+	  	$this->app->bind('Javan\Dynaflow\Application\Inflector', 'Javan\Dynaflow\Application\NameInflector');
+
+	  	$this->app->booting(function()
+		{
+		  	$loader = \Illuminate\Foundation\AliasLoader::getInstance();
+		  	$loader->alias('CreateSysFlowCommand', 'Javan\Dynaflow\Application\Identity\CreateSysFlowCommand');
+		});
+
+		$this->commands([
+            'Javan\Dynaflow\Application\Identity\CreateSysFlowCommand',
+        ]);
 	}
 
 	/**
