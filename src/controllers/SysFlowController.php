@@ -25,20 +25,9 @@ class SysFlowController extends \BaseController {
 	 */
 	public function create()
 	{
-		//$command = new CreateSysFlowCommand('nurrohman','2014-10-31 03:42:38','2014-10-31 03:42:38');
-		//$result = $this->commandBus->execute($command);
-
-		//try {
-	        $command = new CreateSysFlowCommand('nurrohman','2014-10-31 03:42:38','2014-10-31 03:42:38');
-
-	        $result = $this->commandBus->execute($command);
-
-	    //     return 'berhasil';
-	    // }
-	    // catch( \Exception $e )
-	    // {
-	    //     return 'gagal';
-	    // }
+		
+        $command = new CreateSysFlowCommand('nurrohman','2014-10-31 03:42:38','2014-10-31 03:42:38');
+        $result = $this->commandBus->execute($command);
 	}
 
 

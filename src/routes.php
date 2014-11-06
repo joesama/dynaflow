@@ -16,16 +16,6 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-Route::get('/test', function()
-{
-	// foreach (Ims::sysFlowCreate() as $key => $value) {
-	// 	echo $value->name;
-	// }
-	//Ims::sysFlowCreate();
-
-	//echo Dynaflow::greeting();
-});
-
 Route::group(array('prefix' => 'sysflow'), function () {
 	// Route::get('/create', function()
 	// {

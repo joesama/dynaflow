@@ -1,6 +1,7 @@
 <?php namespace Javan\Dynaflow\Domain\Services;
 
-use Javan\Dynaflow\Infrastructure\Repositories\SysFlowDoctrineORMRRepository;
+use Javan\Dynaflow\Infrastructure\Repositories\SysFlowRepositoryInterface as SysFlowRepositoryInterface;
+use Javan\Dynaflow\Domain\Model\Identity\SysFlow;
 class SysFlowService{
 
 	/**
@@ -14,7 +15,7 @@ class SysFlowService{
      * @param SysFlowRepository $userRepository
      * @return void
      */
-    public function __construct(SysFlowDoctrineORMRRepository $sysFlowRepository)
+    public function __construct(SysFlowRepositoryInterface $sysFlowRepository)
     {
         $this->sysFlowRepository = $sysFlowRepository;
     }
@@ -27,10 +28,8 @@ class SysFlowService{
      * @param string $update_at
      * @return void
      */
-    public function register($name, $created_at, $update_at)
+    public function add($command)
     {
-        $sysFlow = SysFlow::register($name, $created_at, $update_at);
-        $this->sysFlowRepository->add($sysFlow);
-        return $sysFlow;
+        return $this->sysFlowRepository->add($command);
     }
 }

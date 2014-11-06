@@ -29,11 +29,7 @@ class CreateSysFlowHandler implements Handler
      * @return void
      */
     public function handle(Command $command)
-    {
-        $user = $this->service->register(
-            $command->name,
-            $command->created_at,
-            $command->update_at
-        );
+    {   
+        $user = $this->service->add($command);
     }
 }
