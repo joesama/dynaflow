@@ -2,14 +2,15 @@
 
 use Javan\Dynaflow\Application\Command;
 use Javan\Dynaflow\Application\Handler;
-use Javan\Dynaflow\Domain\Services\SysFlowService;
+use Javan\Dynaflow\Domain\Model\Identity\SysFlow;
+use Javan\Dynaflow\Infrastructure\Repositories\SysFlowRepositoryInterface;
 
 class CreateSysFlowHandler implements Handler
 {
     /**
      * @var SysFlowService
      */
-    private $service;
+    private $sysFlowRepo;
 
     /**
      * Create a new CreateSysFlowHandler
@@ -17,9 +18,9 @@ class CreateSysFlowHandler implements Handler
      * @param SysFlowService $service
      * @return void
      */
-    public function __construct(SysFlowService $service)
+    public function __construct(SysFlowRepositoryInterface $sysFlowRepo)
     {
-        $this->service = $service;
+        $this->sysFlowRepo = $sysFlowRepo;
     }
 
     /**
@@ -30,6 +31,8 @@ class CreateSysFlowHandler implements Handler
      */
     public function handle(Command $command)
     {   
-        $user = $this->service->add($command);
+        $sysFlow = new SysFlow; 
+        
+        $this->sysFlowRepo->add($command);
     }
 }

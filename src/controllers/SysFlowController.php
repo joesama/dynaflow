@@ -1,10 +1,12 @@
 <?php
 use Javan\Dynaflow\Application\CommandBus;
+use Javan\Dynaflow\Infrastructure\Repositories\SysFlowRepositoryInterface;
 
 class SysFlowController extends \BaseController {
 
-	public function __construct(CommandBus $commandBus){
+	public function __construct(CommandBus $commandBus, SysFlowRepositoryInterface $sysFlowRepo){
 		$this->commandBus = $commandBus;	
+		$this->sysFlowRepo = $sysFlowRepo;
 	}
 
 	/**
@@ -14,7 +16,10 @@ class SysFlowController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+
+		$sysflow = $this->sysFlowRepo->all();
+
+		return View::make('dynaflow::sysflow.index', compact('sysflow'));
 	}
 
 
@@ -25,9 +30,7 @@ class SysFlowController extends \BaseController {
 	 */
 	public function create()
 	{
-		
-        $command = new CreateSysFlowCommand('nurrohman','2014-10-31 03:42:38','2014-10-31 03:42:38');
-        $result = $this->commandBus->execute($command);
+		return View::make('dynaflow::sysflow.form');
 	}
 
 
@@ -38,7 +41,10 @@ class SysFlowController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$command = new CreateSysFlowCommand(Input::all());
+		
+        $result = $this->commandBus->execute($command);	
+		
 	}
 
 
