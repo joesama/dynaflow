@@ -18,7 +18,7 @@ class DynaflowServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('javan/dynaflow', 'doctrine', __DIR__ . '/..');
+		$this->package('javan/dynaflow', 'dynaflow');
 		include __DIR__.'/../../routes.php';
 	}
 

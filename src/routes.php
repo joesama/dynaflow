@@ -17,9 +17,8 @@ Route::get('/', function()
 });
 
 Route::group(array('prefix' => 'sysflow'), function () {
-	// Route::get('/create', function()
-	// {
-	// 	echo "string";
-	// });
+	Route::get('/', 'SysFlowController@index');
 	Route::get('create', 'SysFlowController@create');
+	Route::post('store', 'SysFlowController@store');
+
 });

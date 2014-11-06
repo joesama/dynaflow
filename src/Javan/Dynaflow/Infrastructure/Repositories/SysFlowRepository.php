@@ -27,4 +27,34 @@ class SysFlowRepository implements SysFlowRepositoryInterface
         $sample->save();
     }
 
+    /**
+     * All Data 
+     *
+     * @return object
+     */
+    public function all()
+    {
+        return $this->model->all();
+    } 
+
+    /**
+     * All Data 
+     *
+     * @return object
+     */
+    public function update($sysFlow)
+    {
+        return $this->model->all();
+    } 
+
+    /**
+     * All Data 
+     *
+     * @return object
+     */
+    public function delete($sysFlow)
+    {
+        return $this->model->all();
+    }    
+
 }

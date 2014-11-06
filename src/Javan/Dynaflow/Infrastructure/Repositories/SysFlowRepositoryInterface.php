@@ -2,6 +2,8 @@
 
 interface SysFlowRepositoryInterface    
 {
+    public function all();
+
     /**
      * Add a new SysFlow
      *
@@ -9,5 +11,10 @@ interface SysFlowRepositoryInterface
      * @return void
      */
     public function add($sysFlow);
+
+    public function update($sysFlow);
+
+    public function delete($sysFlow);
+
 
 }

@@ -32,4 +32,13 @@ class SysFlowService{
     {
         return $this->sysFlowRepository->add($command);
     }
+
+    /**
+     * Show all data sysflow
+     *
+     * @return void
+     */
+    public function all(){
+        return $this->sysFlowRepository->all();
+    }
 }

@@ -10,17 +10,7 @@ class CreateSysFlowCommand implements Command
     /**
      * @var string
      */
-    private $name;
-
-    /**
-     * @var datetime
-     */
-    private $created_at;
-
-    /**
-     * @var datetime
-     */
-    private $update_at;
+    protected $data;
 
     /**
      * Create a new CreateSysFlowCommand
@@ -30,10 +20,12 @@ class CreateSysFlowCommand implements Command
      * @param datetime $update_at
      * @return void
      */
-    public function __construct($name, $created_at, $update_at)
+    public function __construct($data)
     {
-        $this->name    = $name;
-        $this->created_at = $created_at;
-        $this->update_at = $update_at;
+        $this->data    = $data;
+    }
+
+    public function __get($property){
+        return $this->data[$property];
     }
 }
