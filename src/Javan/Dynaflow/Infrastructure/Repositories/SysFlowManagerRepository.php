@@ -64,7 +64,7 @@ class SysFlowManagerRepository implements SysFlowManagerRepositoryInterface
         }
         $flowManagement = $this->model->where('flow_id', $flow_id)->get(); 
         echo $flow_id;
-        foreach($list as $id,  $flowManagement as $fm) {}
+        //foreach($list as $id,  $flowManagement as $fm) {}
          
         //$this->model->where('id', 1)->update(array('trigger' => 'ABD'));
          //return $this->model->all();
