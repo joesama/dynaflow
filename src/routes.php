@@ -23,6 +23,13 @@ Route::group(array('prefix' => 'sysflow'), function () {
 
 });
 
+Route::group(array('prefix' => 'sysflowstep'), function () {
+	Route::get('/', 'SysFlowStepController@index');
+	Route::get('create', 'SysFlowStepController@create');
+	Route::post('store', 'SysFlowStepController@store');
+
+});
+
 Route::group(array('prefix' => 'flowManager'), function () {
 	Route::get('/', 'SysFlowManagerController@index');
 });

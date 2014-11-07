@@ -40,10 +40,23 @@ class DynaflowServiceProvider extends ServiceProvider {
 	        );
 	    });
 
+	    $this->app->bind('Javan\Dynaflow\Infrastructure\Repositories\SysFlowStepRepositoryInterface', function()
+	    {
+	        return new Infrastructure\Repositories\SysFlowStepRepository( 
+	        	new Domain\Model\Identity\SysFlowStep 
+	        );
+	    });
+
 	  	$this->app->booting(function()
 		{
 		  	$loader = \Illuminate\Foundation\AliasLoader::getInstance();
 		  	$loader->alias('CreateSysFlowCommand', 'Javan\Dynaflow\Application\Identity\CreateSysFlowCommand');
+		});
+
+		$this->app->booting(function()
+		{
+		  	$loader = \Illuminate\Foundation\AliasLoader::getInstance();
+		  	$loader->alias('CreateSysFlowStepCommand', 'Javan\Dynaflow\Application\Identity\CreateSysFlowStepCommand');
 		});
 	}
 

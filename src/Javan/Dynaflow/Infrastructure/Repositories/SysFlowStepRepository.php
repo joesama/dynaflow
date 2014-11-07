@@ -2,7 +2,7 @@
 
 use Eloquent;
 
-class SysFlowRepository implements SysFlowRepositoryInterface
+class SysFlowStepRepository implements SysFlowStepRepositoryInterface
 {
    /**
      * Construct 
@@ -20,10 +20,12 @@ class SysFlowRepository implements SysFlowRepositoryInterface
      *
      * @return null
      */
-    public function add($sysFlow)
+    public function add($sysFlowStep)
     {
         $sample = $this->model;
-        $sample->name = $sysFlow->name;
+        $sample->sys_flow_id = $sysFlowStep->sys_flow_id;
+        $sample->name = $sysFlowStep->name;
+        $sample->action = $sysFlowStep->action;
         $sample->save();
     }
 
@@ -42,10 +44,12 @@ class SysFlowRepository implements SysFlowRepositoryInterface
      *
      * @return object
      */
-    public function update($sysFlow)
+    public function update($sysFlowStep)
     {
         $sample = $this->model;
-        $sample->name = $sysFlow->name;
+        $sample->sys_flow_id = $sysFlowStep->sys_flow_id;
+        $sample->name = $sysFlowStep->name;
+        $sample->action = $sysFlowStep->action;
         $sample->save();
     } 
 
@@ -54,9 +58,10 @@ class SysFlowRepository implements SysFlowRepositoryInterface
      *
      * @return object
      */
-    public function delete($sysFlow)
+    public function delete($sysFlowStep)
     {
-        return $this->model->all();
+        $this->model->find(1);
+        return $this->model->delete();
     }    
 
 }

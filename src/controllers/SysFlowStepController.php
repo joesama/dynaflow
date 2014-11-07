@@ -1,6 +1,13 @@
 <?php
 use Javan\Dynaflow\Application\CommandBus;
+use Javan\Dynaflow\Infrastructure\Repositories\SysFlowStepRepositoryInterface;
+
 class SysFlowStepController extends \BaseController {
+
+	public function __construct(CommandBus $commandBus, SysFlowStepRepositoryInterface $sysFlowStepRepo){
+		$this->commandBus = $commandBus;	
+		$this->sysFlowStepRepo = $sysFlowStepRepo;
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -9,7 +16,9 @@ class SysFlowStepController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$sysflowstep = $this->sysFlowStepRepo->all();
+
+		return View::make('dynaflow::sysflowstep.index', compact('sysflowstep'));
 	}
 
 
@@ -20,7 +29,7 @@ class SysFlowStepController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('dynaflow::sysflowstep.form');
 	}
 
 
@@ -31,7 +40,8 @@ class SysFlowStepController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$command = new CreateSysFlowStepCommand(Input::all());
+        $result = $this->commandBus->execute($command);
 	}
 
 
