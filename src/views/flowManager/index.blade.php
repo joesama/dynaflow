@@ -1,14 +1,14 @@
-@extends('dynaflow::layout.head')
+@extends('dynaflow::layout.head-form')
 @section('judul', 'Flow Management')
 
 @section('content')
 
 <ul id="sortable">
 	@foreach($sysflowManager as $key => $value)        
-    <li id="1">
-        <span></span>
+    <li id="{{ $value->id }}">
+        <span ></span>
         
-        <div><h2>NO </h2>Lalalala</div>
+        <div> &nbsp;<h2>&nbsp;&nbsp; {{ $value->flow->name }} &nbsp;&nbsp; - &nbsp;&nbsp; {{ $value->step->name }}  &nbsp;&nbsp; - &nbsp;&nbsp; {{ $value->trigger }}  </h2></div>
     </li>
     @endforeach
     

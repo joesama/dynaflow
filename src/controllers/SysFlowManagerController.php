@@ -1,16 +1,21 @@
 <?php
 use Javan\Dynaflow\Application\CommandBus;
+use Javan\Dynaflow\Infrastructure\Repositories\SysFlowManagerRepositoryInterface;
 
 class SysFlowManagerController extends \BaseController {
 
+	public function __construct(CommandBus $commandBus, SysFlowManagerRepositoryInterface $sysFlowManagerRepo){
+		$this->commandBus = $commandBus;	
+		$this->sysFlowManagerRepo = $sysFlowManagerRepo;
+	}
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index($flow_id)
 	{
-		$sysflowManager = DB::table('sys_flow_manager')->where('flow_id', '1');
+		$sysflowManager = $this->sysFlowManagerRepo->all($flow_id);
 		return View::make('dynaflow::flowManager.index', compact('sysflowManager'));
 	}
 
@@ -67,21 +72,10 @@ class SysFlowManagerController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update()
+	public function update($list_order)
 	{
-		//
-		$list_order = $_POST['list_order'];
-// convert the string list to an array
-$list = explode(',' , $list_order);
-$i = 1 ;
-foreach($list as $id) {
-	try {
-	    
-	} catch (PDOException $e) {
-		echo 'PDOException : '.  $e->getMessage();
-	}
-	$i++ ;
-}
+		$sysflowManager = $this->sysFlowManagerRepo->update($list_order);
+		
 	}
 
 
