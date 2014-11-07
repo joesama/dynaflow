@@ -42,7 +42,6 @@ class SysFlowController extends \BaseController {
 	public function store()
 	{
 		$command = new CreateSysFlowCommand(Input::all());
-		
         $result = $this->commandBus->execute($command);	
 		
 	}
