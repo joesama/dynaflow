@@ -4,17 +4,13 @@
 @section('content')
 
 <ul id="sortable">
-            
-    <li id="sa">
+	@foreach($sysflowManager as $key => $value)        
+    <li id="1">
         <span></span>
         
-        <div><h2>NO 1</h2>Lalalala</div>
+        <div><h2>NO </h2>Lalalala</div>
     </li>
-    <li id="sa1">
-        <span></span>
-        
-        <div><h2>NO 2</h2>Lalalala</div>
-    </li>
+    @endforeach
     
 </ul>
 @stop

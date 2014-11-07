@@ -10,7 +10,8 @@ class SysFlowManagerController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('dynaflow::flowManager.index');
+		$sysflowManager = DB::table('sys_flow_manager')->where('flow_id', '1');
+		return View::make('dynaflow::flowManager.index', compact('sysflowManager'));
 	}
 
 
@@ -66,9 +67,21 @@ class SysFlowManagerController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update()
 	{
 		//
+		$list_order = $_POST['list_order'];
+// convert the string list to an array
+$list = explode(',' , $list_order);
+$i = 1 ;
+foreach($list as $id) {
+	try {
+	    
+	} catch (PDOException $e) {
+		echo 'PDOException : '.  $e->getMessage();
+	}
+	$i++ ;
+}
 	}
 
 
