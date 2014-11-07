@@ -43,7 +43,6 @@ class SysFlowController extends \BaseController {
 	{
 		$command = new CreateSysFlowCommand(Input::all());
         $result = $this->commandBus->execute($command);	
-		
 	}
 
 

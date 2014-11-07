@@ -2,25 +2,23 @@
 
 use Javan\Dynaflow\Application\Command;
 use Javan\Dynaflow\Application\Handler;
-use Javan\Dynaflow\Domain\Model\Identity\SysFlow;
-use Javan\Dynaflow\Infrastructure\Repositories\SysFlowRepositoryInterface;
+use Javan\Dynaflow\Domain\Model\Identity\SysFlowStep;
+use Javan\Dynaflow\Infrastructure\Repositories\SysFlowStepRepositoryInterface;
 
 class CreateSysFlowStepHandler implements Handler
 {
-    /**
-     * @var SysFlowService
-     */
-    private $sysFlowRepo;
+    
+    private $sysFlowStepRepo;
 
     /**
-     * Create a new CreateSysFlowHandler
+     * Create a new CreateSysStepFlowHandler
      *
-     * @param SysFlowService $service
+     * @param SysFlowRepositoryInterface $sysFlowStepRepo
      * @return void
      */
-    public function __construct(SysFlowRepositoryInterface $sysFlowRepo)
+    public function __construct(SysFlowStepRepositoryInterface $sysFlowStepRepo)
     {
-        $this->sysFlowRepo = $sysFlowRepo;
+        $this->sysFlowStepRepo = $sysFlowStepRepo;
     }
 
     /**
@@ -31,8 +29,8 @@ class CreateSysFlowStepHandler implements Handler
      */
     public function handle(Command $command)
     {   
-        $sysFlow = new SysFlow; 
+        $sysFlow = new SysFlowStep; 
         
-        $this->sysFlowRepo->add($command);
+        $this->sysFlowStepRepo->add($command);
     }
 }
