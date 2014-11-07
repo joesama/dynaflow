@@ -85,9 +85,9 @@ class SysFlowManagerController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function delete($id)
 	{
-		//
+		$sysflowManager = $this->sysFlowManagerRepo->delete($id);
 	}
 
 

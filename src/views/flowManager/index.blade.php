@@ -8,7 +8,7 @@
     <li id="{{ $value->step_id }}">
         <span ></span>
         
-        <div> &nbsp;<h2>&nbsp;&nbsp; {{ $value->flow->name }} &nbsp;&nbsp; - &nbsp;&nbsp; {{ $value->step->name }}  &nbsp;&nbsp; - &nbsp;&nbsp; {{ $value->trigger }}  </h2></div>
+        <div> &nbsp;<h2>&nbsp;&nbsp; {{ $value->flow->name }} &nbsp;&nbsp; - &nbsp;&nbsp; {{ $value->step->name }}  &nbsp;&nbsp; - &nbsp;&nbsp; {{ $value->trigger }}  </h2><a href="{{ URL::to('flowManager/delete/')}}/{{ $value->id }}">delete</a></div>
     </li>
     @endforeach
     

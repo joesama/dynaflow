@@ -14,5 +14,5 @@ interface SysFlowManagerRepositoryInterface
 
     public function update($list_order);
 
-    public function delete($sysFlowManager);
+    public function delete($id);
 }

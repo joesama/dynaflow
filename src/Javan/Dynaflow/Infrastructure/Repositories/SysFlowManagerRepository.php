@@ -63,7 +63,9 @@ class SysFlowManagerRepository implements SysFlowManagerRepositoryInterface
              //$this->model->where('id', $id)->update(array('trigger' => 'ABD'));
         }
         $flowManagement = $this->model->where('flow_id', $flow_id)->get(); 
-        echo $flow_id;
+        echo $flowManagement;
+        //echo $list_order;
+
         //foreach($list as $id,  $flowManagement as $fm) {}
          
         //$this->model->where('id', 1)->update(array('trigger' => 'ABD'));
@@ -75,10 +77,29 @@ class SysFlowManagerRepository implements SysFlowManagerRepositoryInterface
      *
      * @return object
      */
-    public function delete($sysFlowManager)
+    public function delete($id)
     {
-        $this->model->find($sysFlowManager);
-        return $this->model->delete();
+        echo $id;
+        $flow_manager = $this->model->where('id', $id)->get();
+        foreach ($flow_manager as $key => $flow) {
+            $step_id = $flow->step_id;
+            $step_next_id = $flow->step_next_id;
+            $delete = $this->model->where('id', '<', $id)->orderBy('id', 'desc')->limit(1)->get();
+            foreach ($delete as $del) {
+                echo $del->id;
+                $this->model->where('id', $del->id)->update(array('step_next_id' => $step_next_id));
+            }
+            
+        }
+        $flow_manager = $this->model->find($id);
+        $flow_manager->delete();
+        
+        
+        
+
+
+        //var_dump($delete);
+        //return $this->model->delete();
     }    
 
 }
