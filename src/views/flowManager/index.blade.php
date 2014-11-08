@@ -1,20 +1,16 @@
-@extends('dynaflow::layout.head')
+@extends('dynaflow::layout.head-form')
 @section('judul', 'Flow Management')
 
 @section('content')
 
 <ul id="sortable">
-            
-    <li id="sa">
-        <span></span>
+	@foreach($sysflowManager as $key => $value)        
+    <li id="{{ $value->step_id }}">
+        <span ></span>
         
-        <div><h2>NO 1</h2>Lalalala</div>
+        <div> &nbsp;<h2>&nbsp;&nbsp; {{ $value->flow->name }} &nbsp;&nbsp; - &nbsp;&nbsp; {{ $value->step->name }}  &nbsp;&nbsp; - &nbsp;&nbsp; {{ $value->trigger }}  </h2><a href="{{ URL::to('flowManager/delete/')}}/{{ $value->id }}">delete</a></div>
     </li>
-    <li id="sa1">
-        <span></span>
-        
-        <div><h2>NO 2</h2>Lalalala</div>
-    </li>
+    @endforeach
     
 </ul>
 @stop

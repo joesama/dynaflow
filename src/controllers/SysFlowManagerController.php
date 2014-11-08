@@ -1,16 +1,22 @@
 <?php
 use Javan\Dynaflow\Application\CommandBus;
+use Javan\Dynaflow\Infrastructure\Repositories\SysFlowManagerRepositoryInterface;
 
 class SysFlowManagerController extends \BaseController {
 
+	public function __construct(CommandBus $commandBus, SysFlowManagerRepositoryInterface $sysFlowManagerRepo){
+		$this->commandBus = $commandBus;	
+		$this->sysFlowManagerRepo = $sysFlowManagerRepo;
+	}
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index($flow_id)
 	{
-		return View::make('dynaflow::flowManager.index');
+		$sysflowManager = $this->sysFlowManagerRepo->all($flow_id);
+		return View::make('dynaflow::flowManager.index', compact('sysflowManager'));
 	}
 
 
@@ -66,9 +72,10 @@ class SysFlowManagerController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($list_order)
 	{
-		//
+		$sysflowManager = $this->sysFlowManagerRepo->update($list_order);
+		
 	}
 
 
@@ -78,9 +85,9 @@ class SysFlowManagerController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function delete($id)
 	{
-		//
+		$sysflowManager = $this->sysFlowManagerRepo->delete($id);
 	}
 
 
