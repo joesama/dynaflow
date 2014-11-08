@@ -31,8 +31,9 @@ class CreateSysFlowHandler implements Handler
      */
     public function handle(Command $command)
     {   
-        $sysFlow = new SysFlow; 
+        $sysFlow = new SysFlow;
+        $sysFlow->name = $command->name;
         
-        $this->sysFlowRepo->add($command);
+        $this->sysFlowRepo->add($sysFlow);
     }
 }

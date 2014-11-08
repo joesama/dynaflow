@@ -1,6 +1,7 @@
 <?php namespace Javan\Dynaflow\Infrastructure\Repositories;
 
 use Eloquent;
+use Javan\Dynaflow\Domain\Model\Identity\SysFlow;
 
 class SysFlowRepository implements SysFlowRepositoryInterface
 {
@@ -20,11 +21,9 @@ class SysFlowRepository implements SysFlowRepositoryInterface
      *
      * @return null
      */
-    public function add($sysFlow)
+    public function add(SysFlow $sysFlow)
     {
-        $sample = $this->model;
-        $sample->name = $sysFlow->name;
-        $sample->save();
+        $sysFlow->save();
     }
 
     /**

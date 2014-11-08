@@ -29,9 +29,11 @@ class DynaflowServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-	  	$this->app->bind('Javan\Dynaflow\Application\Container', 'Javan\Dynaflow\Application\LaravelContainer');
-	  	$this->app->bind('Javan\Dynaflow\Application\Inflector', 'Javan\Dynaflow\Application\NameInflector');
-	  	$this->app->bind('Javan\Dynaflow\Infrastructure\Repositories\SysFlowRepositoryInterface', 'Javan\Dynaflow\Infrastructure\Repositories\SysFlowRepository');
+
+		$this->app->bind('Javan\Dynaflow\Application\CommandBus', function()
+        {
+            return new Application\CommandBus( $this->app, new Application\NameInflector );
+        });
 
 	  	$this->app->bind('Javan\Dynaflow\Infrastructure\Repositories\SysFlowRepositoryInterface', function()
 	    {

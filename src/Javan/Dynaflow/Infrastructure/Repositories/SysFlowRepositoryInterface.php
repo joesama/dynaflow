@@ -1,5 +1,6 @@
 <?php namespace Javan\Dynaflow\Infrastructure\Repositories;
 
+use Javan\Dynaflow\Domain\Model\Identity\SysFlow;
 interface SysFlowRepositoryInterface    
 {
     public function all();
@@ -10,7 +11,7 @@ interface SysFlowRepositoryInterface
      * @param SysFlow $sysFlow
      * @return void
      */
-    public function add($sysFlow);
+    public function add(SysFlow $sysFlow);
 
     public function update($sysFlow);
 

@@ -1,5 +1,7 @@
 <?php namespace Javan\Dynaflow\Application;
 
+use Illuminate\Container\Container;
+
 class CommandBus
 {
     /**
@@ -32,7 +34,7 @@ class CommandBus
      */
     public function execute(Command $command)
     {
-        $this->handler($command)->handle($command);
+        return $this->handler($command)->handle($command);
     }
 
     /**

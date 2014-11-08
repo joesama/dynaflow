@@ -40,8 +40,14 @@ class SysFlowStepController extends \BaseController {
 	 */
 	public function store()
 	{
+
 		$command = new CreateSysFlowStepCommand(Input::all());
-        $result = $this->commandBus->execute($command);
+		try {
+			$result = $this->commandBus->execute($command);
+			return Redirect::to('sysflowstep/index');
+		} catch (Exception $e) {
+			
+		}
 	}
 
 
