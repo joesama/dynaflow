@@ -1,9 +1,22 @@
 @extends('dynaflow::layout.head-form')
 @section('judul', 'Flow Management')
 
+<?php
+if (isset($sysflowstep)) {
+    $edit_mode = true;
+} else {
+    $edit_mode = false;
+}
+?>
+
 @section('content')
-    <h3>Create Sys Flow Step</h3>
-    {{ Form::open(array('url' => 'sysflowstep/store', 'class' => 'form-horizontal')) }}
+    @if ($edit_mode)
+        <h3>edit Sys Flow Step</h3>
+        {{ Form::model($sysflowstep, array('url'=> URL::to('sysflowstep/update/'.$sysflowstep->id), 'class'=>'form-horizontal', 'role'=>'form')) }}
+    @else
+        <h3>Create Sys Flow Step</h3>
+        {{ Form::open(array('url' => 'sysflowstep/store', 'class' => 'form-horizontal')) }}
+    @endif
 
     <div class="form-group">
         <label class="col-sm-2 control-label">Sys Flow</label>

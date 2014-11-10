@@ -37,7 +37,18 @@ class SysFlowStepRepository implements SysFlowStepRepositoryInterface
     public function all()
     {
         return $this->model->all();
-    } 
+    }
+
+    /**
+     * All Data with paginate
+     *
+     * @return object
+     */
+    public function paginate($limit = 10)
+    {
+        $paginate = new SysFlowStep();
+        return $paginate->paginate($limit);;
+    }  
 
     /**
      * All Data 
