@@ -35,7 +35,7 @@ Route::group(array('prefix' => 'sysflowstep'), function () {
 });
 
 Route::group(array('prefix' => 'flowmanager'), function () {
-	Route::get('index/{id}', 'SysFlowManagerController@index');
+	Route::get('/index/{id}', 'SysFlowManagerController@index');
 	Route::get('create', 'SysFlowManagerController@create');
 	Route::post('store', 'SysFlowManagerController@store');
 	Route::get('update/{id}', 'SysFlowManagerController@update');
