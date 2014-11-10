@@ -13,7 +13,7 @@
     <tbody>
     @foreach($sysflow as $key => $value)
         <tr>
-            <td><a href="{{ URL::to('flowManager')}}/{{ $value->id }}">{{ $value->name }}</a></td>
+            <td><a href="{{ URL::to('flowmanager')}}/index/{{ $value->id }}">{{ $value->name }}</a></td>
             <td>{{ $value->created_at }} </td>
             <td><a href="{{ URL::to('sysflow/update')}}">Update</a> | <a href="{{ URL::to('sysflow/delete')}}">Delete</a></td>
         </tr>

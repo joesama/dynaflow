@@ -1,12 +1,15 @@
 <?php
 use Javan\Dynaflow\Application\CommandBus;
 use Javan\Dynaflow\Infrastructure\Repositories\SysFlowManagerRepositoryInterface;
+use Javan\Dynaflow\Infrastructure\Repositories\SysFlowRepositoryInterface;
+use Javan\Dynaflow\Infrastructure\Repositories\SysFlowStepRepositoryInterface;
 
 class SysFlowManagerController extends \BaseController {
 
-	public function __construct(CommandBus $commandBus, SysFlowManagerRepositoryInterface $sysFlowManagerRepo){
+	public function __construct(CommandBus $commandBus, SysFlowManagerRepositoryInterface $sysFlowManagerRepo, SysFlowStepRepositoryInterface $sysFlowStepRepo){
 		$this->commandBus = $commandBus;	
 		$this->sysFlowManagerRepo = $sysFlowManagerRepo;
+		$this->sysFlowStepRepo = $sysFlowStepRepo;
 	}
 	/**
 	 * Display a listing of the resource.
@@ -16,7 +19,7 @@ class SysFlowManagerController extends \BaseController {
 	public function index($flow_id)
 	{
 		$sysflowManager = $this->sysFlowManagerRepo->all($flow_id);
-		return View::make('dynaflow::flowManager.index', compact('sysflowManager'));
+		return View::make('dynaflow::flowManager.index', compact('sysflowManager', 'flow_id'));
 	}
 
 
@@ -27,7 +30,8 @@ class SysFlowManagerController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('dynaflow::flowmanager.form');
+		$sysflowStep = $this->sysFlowStepRepo->all();
+		return View::make('dynaflow::flowmanager.form', compact('sysflowStep'));
 	}
 
 
@@ -40,7 +44,8 @@ class SysFlowManagerController extends \BaseController {
 	{
 		$command = new CreateSysFlowManagerCommand(Input::all());
         $result = $this->commandBus->execute($command);
-        return Redirect::to('/flowmanager')->with([ 'message' => 'success' ]);
+        $flow_id = $_POST['flow_id'];
+        return Redirect::to('/flowmanager/index/'.$flow_id)->with([ 'message' => 'success' ]);
 	}
 
 
@@ -89,7 +94,9 @@ class SysFlowManagerController extends \BaseController {
 	 */
 	public function delete($id)
 	{
+		$flow_id = $_GET['flow_id'];
 		$sysflowManager = $this->sysFlowManagerRepo->delete($id);
+		 return Redirect::to('/flowmanager/index/'.$flow_id)->with([ 'message' => 'success' ]);
 	}
 
 
