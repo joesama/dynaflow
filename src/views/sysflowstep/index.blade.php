@@ -15,7 +15,7 @@
         <tr>
             <td>{{ $value->name }}</td>
             <td>{{ $value->created_at }} </td>
-            <td><a href="{{ URL::to('sysflowstep/update')}}">Update</a> | <a href="{{ URL::to('sysflowstep/delete')}}">Delete</a></td>
+            <td><a href="{{ URL::to('sysflowstep/edit/'.$value->id)}}">Update</a> | <a href="{{ URL::to('sysflowstep/delete')}}">Delete</a></td>
         </tr>
     @endforeach
     </tbody>

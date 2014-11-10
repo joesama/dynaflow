@@ -10,12 +10,11 @@ if (isset($sysflow)) {
 ?>
 
 @section('content')
-    <h3>Create Sys Flow</h3>
     @if ($edit_mode)
-        <h3>Edit Brand</h3>
+        <h3>Edit Sys Flow</h3>
         {{ Form::model($sysflow, array('url'=> URL::to('sysflow/update/'.$sysflow->id), 'class'=>'form-horizontal', 'role'=>'form')) }}
     @else
-        <h3>Create Brand</h3>
+        <h3>Create Sys Flow</h3>
         {{ Form::open(array('url' => 'sysflow/store', 'class' => 'form-horizontal')) }}
     @endif
 
@@ -29,8 +28,8 @@ if (isset($sysflow)) {
 
      <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" name="simpan" class="btn btn-primary" value="simpan">Simpan</button>
-            <a href="{{ URL::to('sysflow')}}" class="btn btn-default">Batal</a>
+            <button type="submit" name="simpan" class="btn btn-primary" value="simpan">Create</button>
+            <a href="{{ URL::to('sysflow')}}" class="btn btn-default">Cancel</a>
         </div>
     </div>
     {{ Form::close() }}

@@ -40,14 +40,20 @@ class SysFlowStepController extends \BaseController {
 	 */
 	public function store()
 	{
-
+		
 		$command = new CreateSysFlowStepCommand(Input::all());
-		try {
-			$result = $this->commandBus->execute($command);
-			return Redirect::to('sysflowstep/index');
-		} catch (Exception $e) {
-			
-		}
+
+        try {
+            $result = $this->commandBus->execute($command);
+        } catch(ValidationException $e)
+        {
+            return Redirect::to('/sysflowstep/create')->withErrors( $e->getErrors() );
+        } catch(\DomainException $e)
+        {
+            return Redirect::to('sysflowstep/create')->withErrors( $e->getErrors() );
+        }
+
+        return Redirect::to('sysflowstep/create')->with(['message' => 'success!']);
 	}
 
 
@@ -71,7 +77,9 @@ class SysFlowStepController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$sysflowstep = \Javan\Dynaflow\Domain\Model\Identity\SysFlowStep::find(1);
+
+        return View::make('dynaflow::sysflowstep.form', compact('sysflowstep'));
 	}
 
 
