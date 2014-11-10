@@ -19,7 +19,7 @@
                 <td>{{ $value->name }}</td>
                 <td>{{ $value->action }}</td>
                 <td>{{ $value->created_at }} </td>
-                <td><a href="{{ URL::to('sysflowstep/edit/'.$value->id)}}">Update</a> | 
+                <td><a href="{{ URL::to('sysflowstep/edit/'.$value->id)}}?modul=1">Update</a> | 
                     <a href="{{ URL::to('sysflowstep/delete/' . $value->id) }}" onclick="return confirm('Anda yakin ingin menghapus Flow Step ini?')">delete</a></td>
             </tr>
         @endforeach
@@ -28,6 +28,6 @@
 
 <div class="pages">{{ $sysflowstep->links(); }}</div>
 
-<a href="{{ URL::to('sysflowstep/create')}}">Add</a>
+<a href="{{ URL::to('sysflowstep/create?modul=1')}}">Add</a>
 
 @stop

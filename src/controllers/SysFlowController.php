@@ -48,13 +48,13 @@ class SysFlowController extends \BaseController {
             $result = $this->commandBus->execute($command);	
         } catch(ValidationException $e)
         {
-            return Redirect::to('/sysflow/create')->withErrors( $e->getErrors() );
+            return Redirect::to('/sysflow/create?modul=1')->withErrors( $e->getErrors() );
         } catch(\DomainException $e)
         {
-            return Redirect::to('sysflow/create')->withErrors( $e->getErrors() );
+            return Redirect::to('sysflow/create?modul=1')->withErrors( $e->getErrors() );
         }
 
-        return Redirect::to('sysflow/create')->with(['message' => 'success!']);
+        return Redirect::to('sysflow?modul=1')->with(['message' => 'success!']);
 	}
 
 
@@ -110,7 +110,7 @@ class SysFlowController extends \BaseController {
         // redirect
         Session::flash('message', 'Berhasil menghapus Sys Flow!');
 
-        return Redirect::to('sysflow');
+        return Redirect::to('sysflow?modul=1');
 	}
 
 

@@ -26,8 +26,8 @@
         <table width="100%">
             <tr><td width="20%" valign="top">
                 <div class="list-group">
-                  <a href="{{ URL::to('sysflow')}}" class="list-group-item">Flow</a>
-                  <a href="{{ URL::to('sysflowstep')}}" class="list-group-item">Step</a>
+                  <a href="{{ URL::to('sysflow?modul=1')}}" class="list-group-item <?php if($_GET['modul'] == 1){ ?>active <?php } ?>">Flow</a>
+                  <a href="{{ URL::to('sysflowstep?modul=2')}}" class="list-group-item <?php if($_GET['modul'] == 2){ ?>active <?php } ?>">Step</a>
                 </div>
             </td><td width="5%">
             </td><td width="75%">
