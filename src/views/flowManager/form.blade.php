@@ -1,4 +1,4 @@
-@extends('dynaflow::layout.head-form')
+@extends('dynaflow::layout.head')
 @section('judul', 'Flow Management')
 
 @section('content')
