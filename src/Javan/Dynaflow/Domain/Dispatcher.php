@@ -1,4 +1,4 @@
-<?php namespace Javan\Dynaflow\Domain;
+<?php namespace Javan\Dynaflow\Application\Events;
 
 class Dispatcher
 {

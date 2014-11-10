@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class SysFlow extends Model
 {
+	use \Javan\Dynaflow\Application\Events\Eventable;
+
     protected $table = 'sys_flow'; 
     
 }

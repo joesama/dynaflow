@@ -3,7 +3,7 @@
 use Illuminate\Validation\Factory;
 use Javan\Dynaflow\Validation\ValidationException;
 use Javan\Dynaflow\Validation\ValidatorInterface;
-use Javan\Dynaflow\CommandBus\CommandInterface;
+use Javan\Dynaflow\Application\Command;
 
 class CreateSysFlowStepValidator implements ValidatorInterface {
 
@@ -17,7 +17,8 @@ class CreateSysFlowStepValidator implements ValidatorInterface {
      */
     protected $rules = [
         'name' => 'required',
-        'sys_flow_id' => 'required'
+        'sys_flow_id' => 'required',
+        'action' => 'required'
     ];
 
     public function __construct(Factory $validator)
@@ -29,11 +30,12 @@ class CreateSysFlowStepValidator implements ValidatorInterface {
      * @param \Hex\CommandBus\CommandInterface $command
      * @throws \Hex\Validation\ValidationException
      */
-    public function validate(CommandInterface $command)
+    public function validate(Command $command)
     {
         $validator = $this->validator->make([
             'name' => $command->name,
             'sys_flow_id' => $command->sys_flow_id,
+            'action' => $command->action
         ], $this->rules);
 
         if( ! $validator->passes() )

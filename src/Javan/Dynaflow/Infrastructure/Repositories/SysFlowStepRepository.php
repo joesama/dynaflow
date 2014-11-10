@@ -20,13 +20,9 @@ class SysFlowStepRepository implements SysFlowStepRepositoryInterface
      *
      * @return null
      */
-    public function add($sysFlowStep)
+    public function add(SysFlowStep $sysFlowStep)
     {
-        $sample = $this->model;
-        $sample->sys_flow_id = $sysFlowStep->sys_flow_id;
-        $sample->name = $sysFlowStep->name;
-        $sample->action = $sysFlowStep->action;
-        $sample->save();
+        $sysFlowStep->save();
     }
 
     /**

@@ -24,24 +24,27 @@ if (isset($sysflowstep)) {
         {{ Form::open(array('url' => 'sysflowstep/store', 'class' => 'form-horizontal')) }}
     @endif
 
-    <div class="form-group">
+    <div class="form-group {{ $errors->first('sys_flow_id', 'has-error') }}">
         <label class="col-sm-2 control-label">Sys Flow</label>
         <div class="col-sm-10">
             {{ Form::select('sys_flow_id', $sysflow, '', array('class'=>'form-control','id'=>'user_id')) }}
+            <span class="help-block"> {{ $errors->first('sys_flow_id') }} </span>
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group {{ $errors->first('name', 'has-error') }}">
         <label class="col-sm-2 control-label">Name Flow Step</label>
         <div class="col-sm-10">
             {{ Form::text('name', null, array('class'=>'form-control','placeholder'=>'Flow Step'))}}
+            <span class="help-block"> {{ $errors->first('name') }} </span>
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group {{ $errors->first('action', 'has-error') }}">
         <label class="col-sm-2 control-label">Action</label>
         <div class="col-sm-10">
             {{ Form::text('action', null, array('class'=>'form-control','placeholder'=>'Action'))}}
+            <span class="help-block"> {{ $errors->first('action') }} </span>
         </div>
     </div>
 

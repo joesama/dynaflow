@@ -18,7 +18,9 @@ class CreateSysFlowHandler implements Handler
     /**
      * Create a new CreateSysFlowHandler
      *
-     * @param SysFlowService $service
+     * @param CreateSysFlowValidator $validator
+     * @param SysFlowRepositoryInterface $sysFlowRepo
+     * @param Dispatcher $dispatcher
      * @return void
      */
     public function __construct(CreateSysFlowValidator $validator, SysFlowRepositoryInterface $sysFlowRepo, Dispatcher $dispatcher)
@@ -51,7 +53,5 @@ class CreateSysFlowHandler implements Handler
         $sysFlow->name = $command->name;
 
         $this->sysFlowRepo->add($sysFlow);
-
-        $this->dispatcher->dispatch( $sysFlow->flushEvents() );
     }
 }
