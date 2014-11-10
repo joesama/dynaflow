@@ -2,7 +2,7 @@
 @section('judul', 'Flow Management')
 
 @section('content')
-<table border=1>
+<table class="table table-bordered table-condensed">
     <thead>
         <tr>
             <td>Name Flow</td>
@@ -11,19 +11,19 @@
         </tr>
     </thead>
     <tbody>
-    @foreach($sysflow as $key => $value)
-        <tr>
-            <td><a href="{{ URL::to('flowmanager')}}/index/{{ $value->id }}">{{ $value->name }}</a></td>
-            <td>{{ $value->created_at }} </td>
-            <td><a href="{{ URL::to('sysflow/edit/'.$value->id)}}">Update</a> | 
-                <a href="{{ URL::to('sysflow/delete/' . $value->id) }}" onclick="return confirm('Anda yakin ingin menghapus Flow Step ini?')">delete</a></td>
-        </tr>
-    @endforeach
+        @foreach($sysflow as $key => $value)
+            <tr>
+                <td><a href="{{ URL::to('flowmanager')}}/index/{{ $value->id }}">{{ $value->name }}</a></td>
+                <td>{{ $value->created_at }} </td>
+                <td><a href="{{ URL::to('sysflow/edit/'.$value->id)}}">Update</a> | 
+                    <a href="{{ URL::to('sysflow/delete/' . $value->id) }}" onclick="return confirm('Anda yakin ingin menghapus Flow Step ini?')">delete</a></td>
+            </tr>
+        @endforeach
     </tbody>
 </table>
 
 <div class="pages">{{ $sysflow->links(); }}</div>
 
-<a href="{{ URL::to('sysflow/create')}}">create</a>
+<a href="{{ URL::to('sysflow/create')}}">Add</a>
 
 @stop
