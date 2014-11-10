@@ -69,10 +69,10 @@ class SysFlowStepRepository implements SysFlowStepRepositoryInterface
      *
      * @return object
      */
-    public function delete($sysFlowStep)
+    public function delete($id)
     {
-        $this->model->find(1);
-        return $this->model->delete();
+        $sysflowstep = SysFlowStep::find($id);
+        $sysflowstep->delete();
     }    
 
 }

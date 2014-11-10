@@ -103,8 +103,12 @@ class SysFlowStepController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		//delete
+       	$sysflowstep = $this->sysFlowStepRepo->delete($id);
+
+        // redirect
+        Session::flash('message', 'Berhasil menghapus Flow Step!');
+
+        return Redirect::to('sysflowstep');
 	}
-
-
 }
