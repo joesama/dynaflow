@@ -35,42 +35,17 @@ class DynaflowServiceProvider extends ServiceProvider {
             return new Application\CommandBus( $this->app, new Application\NameInflector );
         });
 
-	  	$this->app->bind('Javan\Dynaflow\Infrastructure\Repositories\SysFlowRepositoryInterface', function()
-	    {
-	        return new Infrastructure\Repositories\SysFlowRepository( 
-	        	new Domain\Model\Identity\SysFlow 
-	        );
-	    });
+	  	$this->app->bind('Javan\Dynaflow\Infrastructure\Repositories\SysFlowRepositoryInterface', 'Javan\Dynaflow\Infrastructure\Repositories\SysFlowRepository');
 
-	    $this->app->bind('Javan\Dynaflow\Infrastructure\Repositories\SysFlowStepRepositoryInterface', function()
-	    {
-	        return new Infrastructure\Repositories\SysFlowStepRepository( 
-	        	new Domain\Model\Identity\SysFlowStep 
-	        );
-	    });
+	    $this->app->bind('Javan\Dynaflow\Infrastructure\Repositories\SysFlowStepRepositoryInterface', 'Javan\Dynaflow\Infrastructure\Repositories\SysFlowStepRepository');
 
-	  	$this->app->bind('Javan\Dynaflow\Infrastructure\Repositories\SysFlowManagerRepositoryInterface', function()
-	    {
-	        return new Infrastructure\Repositories\SysFlowManagerRepository( 
-	        	new Domain\Model\Identity\SysFlowManager 
-	        );
-	    });
+	  	$this->app->bind('Javan\Dynaflow\Infrastructure\Repositories\SysFlowManagerRepositoryInterface', 'Javan\Dynaflow\Infrastructure\Repositories\SysFlowManagerRepository');
 
 	  	$this->app->booting(function()
 		{
 		  	$loader = \Illuminate\Foundation\AliasLoader::getInstance();
 		  	$loader->alias('CreateSysFlowCommand', 'Javan\Dynaflow\Application\Identity\CreateSysFlowCommand');
-		});
-
-		$this->app->booting(function()
-		{
-		  	$loader = \Illuminate\Foundation\AliasLoader::getInstance();
 		  	$loader->alias('CreateSysFlowStepCommand', 'Javan\Dynaflow\Application\Identity\CreateSysFlowStepCommand');
-		});
-
-		$this->app->booting(function()
-		{
-		  	$loader = \Illuminate\Foundation\AliasLoader::getInstance();
 		  	$loader->alias('CreateSysFlowManagerCommand', 'Javan\Dynaflow\Application\Identity\CreateSysFlowManagerCommand');
 		});
 	}

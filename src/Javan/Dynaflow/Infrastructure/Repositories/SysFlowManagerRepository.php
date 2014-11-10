@@ -1,6 +1,6 @@
 <?php namespace Javan\Dynaflow\Infrastructure\Repositories;
 
-use Eloquent;
+use Javan\Dynaflow\Domain\Model\Identity\SysFlowManager;
 
 class SysFlowManagerRepository implements SysFlowManagerRepositoryInterface
 {
@@ -10,7 +10,7 @@ class SysFlowManagerRepository implements SysFlowManagerRepositoryInterface
      * @param  Eloquent     $model 
      * @return null
      */
-    public function __construct(Eloquent $model)    
+    public function __construct(SysFlowManager $model)    
     {
 
         $this->model = $model;

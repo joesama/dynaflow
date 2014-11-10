@@ -27,7 +27,7 @@ class SysFlowManagerController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('dynaflow::flowmanager.form');
 	}
 
 
@@ -38,7 +38,9 @@ class SysFlowManagerController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$command = new CreateSysFlowManagerCommand(Input::all());
+        $result = $this->commandBus->execute($command);
+        return Redirect::to('/flowmanager')->with([ 'message' => 'success' ]);
 	}
 
 

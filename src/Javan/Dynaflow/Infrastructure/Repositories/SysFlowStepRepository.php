@@ -1,6 +1,6 @@
 <?php namespace Javan\Dynaflow\Infrastructure\Repositories;
 
-use Eloquent;
+use Javan\Dynaflow\Domain\Model\Identity\SysFlowStep;
 
 class SysFlowStepRepository implements SysFlowStepRepositoryInterface
 {
@@ -10,7 +10,7 @@ class SysFlowStepRepository implements SysFlowStepRepositoryInterface
      * @param  Eloquent     $model 
      * @return null
      */
-    public function __construct(Eloquent $model)    
+    public function __construct(SysFlowStep $model)    
     {
         $this->model = $model;
     }

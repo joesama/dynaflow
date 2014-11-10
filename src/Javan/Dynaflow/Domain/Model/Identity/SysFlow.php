@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
  * Entity
  * Table(name="sys_flow")
  */
-class SysFlow extends \Eloquent
+class SysFlow extends Model
 {
     protected $table = 'sys_flow'; 
     
