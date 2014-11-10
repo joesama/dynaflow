@@ -45,7 +45,7 @@ class SysFlowManagerController extends \BaseController {
 		$command = new CreateSysFlowManagerCommand(Input::all());
         $result = $this->commandBus->execute($command);
         $flow_id = $_POST['flow_id'];
-        return Redirect::to('/flowmanager/index/'.$flow_id)->with([ 'message' => 'success' ]);
+        return Redirect::to('/flowmanager/index/'.$flow_id.'?modul=1')->with([ 'message' => 'success' ]);
 	}
 
 
@@ -96,7 +96,7 @@ class SysFlowManagerController extends \BaseController {
 	{
 		$flow_id = $_GET['flow_id'];
 		$sysflowManager = $this->sysFlowManagerRepo->delete($id);
-		 return Redirect::to('/flowmanager/index/'.$flow_id)->with([ 'message' => 'success' ]);
+		 return Redirect::to('/flowmanager/index/'.$flow_id.'?modul=1')->with([ 'message' => 'success' ]);
 	}
 
 

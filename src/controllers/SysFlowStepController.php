@@ -48,13 +48,13 @@ class SysFlowStepController extends \BaseController {
             $result = $this->commandBus->execute($command);
         } catch(ValidationException $e)
         {
-            return Redirect::to('/sysflowstep/create')->withErrors( $e->getErrors() );
+            return Redirect::to('/sysflowstep/create?modul=1')->withErrors( $e->getErrors() );
         } catch(\DomainException $e)
         {
-            return Redirect::to('sysflowstep/create')->withErrors( $e->getErrors() );
+            return Redirect::to('sysflowstep/create?modul=1')->withErrors( $e->getErrors() );
         }
 
-        return Redirect::to('sysflowstep/create')->with(['message' => 'success!']);
+        return Redirect::to('sysflowstep?modul=1')->with(['message' => 'success!']);
 	}
 
 
@@ -110,6 +110,6 @@ class SysFlowStepController extends \BaseController {
         // redirect
         Session::flash('message', 'Berhasil menghapus Flow Step!');
 
-        return Redirect::to('sysflowstep');
+        return Redirect::to('sysflowstep?modul=1');
 	}
 }

@@ -3,7 +3,7 @@
 
 @section('content')
 <p>
-    <a href="{{ URL::to('sysflow/create')}}" class="btn btn-primary btn-lg btn-sm" role="button">Add</a>
+    <a href="{{ URL::to('sysflow/create?modul=1')}}" class="btn btn-primary btn-lg btn-sm" role="button">Add</a>
 </p>
 
 <table class="table table-bordered table-condensed">
@@ -17,9 +17,9 @@
     <tbody>
         @foreach($sysflow as $key => $value)
             <tr>
-                <td><a href="{{ URL::to('flowmanager')}}/index/{{ $value->id }}">{{ $value->name }}</a></td>
+                <td><a href="{{ URL::to('flowmanager')}}/index/{{ $value->id }}?modul=1">{{ $value->name }}</a></td>
                 <td>{{ $value->created_at }} </td>
-                <td><a href="{{ URL::to('sysflow/edit/'.$value->id)}}">Update</a> | 
+                <td><a href="{{ URL::to('sysflow/edit/'.$value->id)}}?modul=1">Update</a> | 
                     <a href="{{ URL::to('sysflow/delete/' . $value->id) }}" onclick="return confirm('Anda yakin ingin menghapus Flow Step ini?')">delete</a></td>
             </tr>
         @endforeach
