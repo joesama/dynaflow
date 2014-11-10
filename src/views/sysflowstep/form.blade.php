@@ -9,6 +9,12 @@ if (isset($sysflowstep)) {
 }
 ?>
 
+<?php
+    $sysflow = array('' => 'Pilih Flow');
+    
+    $sysflow = $sysflow + $sysflow = \Javan\Dynaflow\Domain\Model\Identity\SysFlow::lists('name', 'id');
+?>
+
 @section('content')
     @if ($edit_mode)
         <h3>edit Sys Flow Step</h3>
@@ -21,7 +27,7 @@ if (isset($sysflowstep)) {
     <div class="form-group">
         <label class="col-sm-2 control-label">Sys Flow</label>
         <div class="col-sm-10">
-            {{ Form::text('sys_flow_id', null, array('class'=>'form-control','placeholder'=>'Sys Flow'))}}
+            {{ Form::select('sys_flow_id', $sysflow, '', array('class'=>'form-control','id'=>'user_id')) }}
         </div>
     </div>
 
