@@ -19,7 +19,7 @@
 <body>
     <div class="container">
         <div class="header">
-           <h1>Oke</h1>
+           <h1>Dyna Flow</h1>
         </div><!-- header -->
         <h1 class="main_title">@section('judul') 
                     @show</h1>
@@ -29,12 +29,11 @@
                   <a href="{{ URL::to('sysflow')}}" class="list-group-item">Flow</a>
                   <a href="{{ URL::to('sysflowstep')}}" class="list-group-item">Step</a>
                 </div>
-      
-            </td><td width="80%">
+            </td><td width="5%">
+            </td><td width="75%">
                 
-                <div class="contentner">
                      @yield('content')
-                </div><!-- content -->
+                <!-- content -->
         </td></tr>
         </table>
                 
