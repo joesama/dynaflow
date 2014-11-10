@@ -2,7 +2,8 @@
 @section('judul', 'Flow Management')
 
 @section('content')
-<a href="{{ URL::to('flowmanager/create?')}}flow_id={{$flow_id}}">create</a>
+<a href="{{ URL::to('flowmanager/create?')}}flow_id={{$flow_id}}" class="btn btn-primary">create</a>
+<br>
 <ul id="sortable">
 	@foreach($sysflowManager as $key => $value)        
     <li id="{{ $value->step_id }}">
