@@ -15,7 +15,8 @@
         <tr>
             <td><a href="{{ URL::to('flowmanager')}}/index/{{ $value->id }}">{{ $value->name }}</a></td>
             <td>{{ $value->created_at }} </td>
-            <td><a href="{{ URL::to('sysflow/edit/'.$value->id)}}">Update</a> | <a href="{{ URL::to('sysflow/delete')}}">Delete</a></td>
+            <td><a href="{{ URL::to('sysflow/edit/'.$value->id)}}">Update</a> | 
+                <a href="{{ URL::to('sysflow/delete/' . $value->id) }}" onclick="return confirm('Anda yakin ingin menghapus Flow Step ini?')">delete</a></td>
         </tr>
     @endforeach
     </tbody>

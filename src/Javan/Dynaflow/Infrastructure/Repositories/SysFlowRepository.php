@@ -63,9 +63,10 @@ class SysFlowRepository implements SysFlowRepositoryInterface
      *
      * @return object
      */
-    public function delete($sysFlow)
+    public function delete($id)
     {
-        return $this->model->all();
+        $sysflow = SysFlow::find($id);
+        $sysflow->delete();
     }    
 
 }

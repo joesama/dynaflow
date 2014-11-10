@@ -22,7 +22,7 @@ Route::group(array('prefix' => 'sysflow'), function () {
 	Route::post('store', 'SysFlowController@store');
 	Route::get('edit/{id}', 'SysFlowController@edit');
 	Route::post('update/{id}', 'SysFlowController@update');
-
+	Route::get('delete/{id}', 'SysFlowController@destroy');
 });
 
 Route::group(array('prefix' => 'sysflowstep'), function () {
@@ -31,6 +31,7 @@ Route::group(array('prefix' => 'sysflowstep'), function () {
 	Route::post('store', 'SysFlowStepController@store');
 	Route::get('edit/{id}', 'SysFlowStepController@edit');
 	Route::post('update/{id}', 'SysFlowStepController@update');
+	Route::get('delete/{id}', 'SysFlowStepController@destroy');
 });
 
 Route::group(array('prefix' => 'flowmanager'), function () {

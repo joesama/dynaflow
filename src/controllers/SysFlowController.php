@@ -104,7 +104,13 @@ class SysFlowController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		//delete
+       	$sysflow = $this->sysFlowRepo->delete($id);
+
+        // redirect
+        Session::flash('message', 'Berhasil menghapus Sys Flow!');
+
+        return Redirect::to('sysflow');
 	}
 
 
