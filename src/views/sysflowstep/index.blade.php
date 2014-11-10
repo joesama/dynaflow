@@ -21,6 +21,8 @@
     </tbody>
 </table>
 
+<div class="pages">{{ $sysflowstep->links(); }}</div>
+
 <a href="{{ URL::to('sysflowstep/create')}}">create</a>
 
 @stop

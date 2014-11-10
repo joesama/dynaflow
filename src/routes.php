@@ -20,6 +20,8 @@ Route::group(array('prefix' => 'sysflow'), function () {
 	Route::get('/', 'SysFlowController@index');
 	Route::get('create', 'SysFlowController@create');
 	Route::post('store', 'SysFlowController@store');
+	Route::get('edit/{id}', 'SysFlowController@edit');
+	Route::post('update/{id}', 'SysFlowController@update');
 
 });
 

@@ -15,11 +15,13 @@
         <tr>
             <td><a href="{{ URL::to('flowManager')}}/{{ $value->id }}">{{ $value->name }}</a></td>
             <td>{{ $value->created_at }} </td>
-            <td><a href="{{ URL::to('sysflow/update')}}">Update</a> | <a href="{{ URL::to('sysflow/delete')}}">Delete</a></td>
+            <td><a href="{{ URL::to('sysflow/edit/'.$value->id)}}">Update</a> | <a href="{{ URL::to('sysflow/delete')}}">Delete</a></td>
         </tr>
     @endforeach
     </tbody>
 </table>
+
+<div class="pages">{{ $sysflow->links(); }}</div>
 
 <a href="{{ URL::to('sysflow/create')}}">create</a>
 

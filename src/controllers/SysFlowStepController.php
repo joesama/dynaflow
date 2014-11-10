@@ -16,7 +16,7 @@ class SysFlowStepController extends \BaseController {
 	 */
 	public function index()
 	{
-		$sysflowstep = $this->sysFlowStepRepo->all();
+		$sysflowstep = $this->sysFlowStepRepo->paginate(10);
 
 		return View::make('dynaflow::sysflowstep.index', compact('sysflowstep'));
 	}

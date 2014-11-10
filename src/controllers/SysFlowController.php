@@ -1,6 +1,7 @@
 <?php
 use Javan\Dynaflow\Application\CommandBus;
 use Javan\Dynaflow\Infrastructure\Repositories\SysFlowRepositoryInterface;
+use Javan\Dynaflow\Domain\Validation\ValidationException;
 
 class SysFlowController extends \BaseController {
 
@@ -17,7 +18,7 @@ class SysFlowController extends \BaseController {
 	public function index()
 	{
 
-		$sysflow = $this->sysFlowRepo->all();
+		$sysflow = $this->sysFlowRepo->paginate(10);
 
 		return View::make('dynaflow::sysflow.index', compact('sysflow'));
 	}
@@ -42,7 +43,18 @@ class SysFlowController extends \BaseController {
 	public function store()
 	{
 		$command = new CreateSysFlowCommand(Input::all());
-        $result = $this->commandBus->execute($command);	
+
+        try {
+            $result = $this->commandBus->execute($command);	
+        } catch(ValidationException $e)
+        {
+            return Redirect::to('/sysflow/create')->withErrors( $e->getErrors() );
+        } catch(\DomainException $e)
+        {
+            return Redirect::to('sysflow/create')->withErrors( $e->getErrors() );
+        }
+
+        return Redirect::to('sysflow/create')->with(['message' => 'success!']);
 	}
 
 
@@ -54,7 +66,7 @@ class SysFlowController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		
 	}
 
 
@@ -66,7 +78,9 @@ class SysFlowController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$sysflow = \Javan\Dynaflow\Domain\Model\Identity\SysFlow::find(1);
+
+        return View::make('dynaflow::sysflow.form', compact('sysflow'));
 	}
 
 
@@ -78,7 +92,7 @@ class SysFlowController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		
 	}
 
 

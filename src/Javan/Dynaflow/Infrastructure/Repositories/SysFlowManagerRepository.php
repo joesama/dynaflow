@@ -43,6 +43,17 @@ class SysFlowManagerRepository implements SysFlowManagerRepositoryInterface
     } 
 
     /**
+     * All Data with paginate
+     *
+     * @return object
+     */
+    public function paginate($limit = 10)
+    {
+        $paginate = new SysFlowManager();
+        return $paginate->paginate($limit);;
+    } 
+
+    /**
      * All Data 
      *
      * @return object
