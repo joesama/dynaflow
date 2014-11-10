@@ -2,6 +2,11 @@
 @section('judul', 'Flow Management')
 
 @section('content')
+
+<p>
+    <a href="{{ URL::to('sysflowstep/create')}}" class="btn btn-primary btn-lg btn-sm" role="button">Add</a>
+</p>
+
 <table class="table table-bordered table-condensed">
     <thead>
         <tr>
@@ -27,7 +32,5 @@
 </table>
 
 <div class="pages">{{ $sysflowstep->links(); }}</div>
-
-<a href="{{ URL::to('sysflowstep/create')}}">Add</a>
 
 @stop

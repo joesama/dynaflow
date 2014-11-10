@@ -1,11 +1,11 @@
-<?php  namespace Hex\Tickets\Validators;
+<?php  namespace Javan\Dynaflow\Domain\Validators;
 
 use Illuminate\Validation\Factory;
-use Hex\Validation\ValidationException;
-use Hex\Validation\ValidatorInterface;
-use Hex\CommandBus\CommandInterface;
+use Javan\Dynaflow\Validation\ValidationException;
+use Javan\Dynaflow\Validation\ValidatorInterface;
+use Javan\Dynaflow\Application\Command;
 
-class CreateSysFlowTicketValidator implements ValidatorInterface {
+class CreateSysFlowValidator implements ValidatorInterface {
 
     /**
      * @var \Illuminate\Validation\Factory
@@ -25,10 +25,10 @@ class CreateSysFlowTicketValidator implements ValidatorInterface {
     }
 
     /**
-     * @param \Hex\CommandBus\CommandInterface $command
-     * @throws \Hex\Validation\ValidationException
+     * @param \Javan\Dynaflow\CommandBus\Command $command
+     * @throws \Javan\Dynaflow\Validation\ValidationException
      */
-    public function validate(CommandInterface $command)
+    public function validate(Command $command)
     {
         $validator = $this->validator->make([
             'name' => $command->name,

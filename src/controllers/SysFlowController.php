@@ -1,7 +1,7 @@
 <?php
 use Javan\Dynaflow\Application\CommandBus;
 use Javan\Dynaflow\Infrastructure\Repositories\SysFlowRepositoryInterface;
-use Javan\Dynaflow\Domain\Validation\ValidationException;
+use Javan\Dynaflow\Validation\ValidationException;
 
 class SysFlowController extends \BaseController {
 

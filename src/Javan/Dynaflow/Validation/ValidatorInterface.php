@@ -1,8 +1,8 @@
-<?php  namespace Hex\Validation;
+<?php  namespace Javan\Dynaflow\Validation;
 
-use Hex\CommandBus\CommandInterface;
+use Javan\Dynaflow\Application\Command;
 
 interface ValidatorInterface {
 
-    public function validate(CommandInterface $command);
+    public function validate(Command $command);
 } 

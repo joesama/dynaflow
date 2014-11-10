@@ -1,4 +1,4 @@
-<?php namespace Hex\Validation;
+<?php namespace Javan\Dynaflow\Validation;
 
 use Exception;
 use Illuminate\Support\MessageBag;

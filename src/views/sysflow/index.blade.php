@@ -2,12 +2,16 @@
 @section('judul', 'Flow Management')
 
 @section('content')
+<p>
+    <a href="{{ URL::to('sysflow/create')}}" class="btn btn-primary btn-lg btn-sm" role="button">Add</a>
+</p>
+
 <table class="table table-bordered table-condensed">
     <thead>
         <tr>
             <td>Name Flow</td>
             <td>Created</td>
-            <td>action</td>
+            <td></td>
         </tr>
     </thead>
     <tbody>
@@ -23,7 +27,5 @@
 </table>
 
 <div class="pages">{{ $sysflow->links(); }}</div>
-
-<a href="{{ URL::to('sysflow/create')}}">Add</a>
 
 @stop
