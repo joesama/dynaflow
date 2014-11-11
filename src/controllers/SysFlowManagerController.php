@@ -22,6 +22,12 @@ class SysFlowManagerController extends \BaseController {
 		return View::make('dynaflow::flowManager.index', compact('sysflowManager', 'flow_id'));
 	}
 
+	public function content($flow_id)
+	{
+		$sysflowManager = $this->sysFlowManagerRepo->all($flow_id);
+		return View::make('dynaflow::flowManager.content', compact('sysflowManager', 'flow_id'));
+	}
+
 
 	/**
 	 * Show the form for creating a new resource.
