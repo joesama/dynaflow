@@ -2,17 +2,20 @@
 @section('judul', 'Flow Management')
 
 @section('content')
-<a href="{{ URL::to('flowmanager/create?')}}flow_id={{$flow_id}}&modul=1" class="btn btn-primary">Add</a>
-<br>
+<h2>FLow Management {{$sysflow}}
+    <a href="{{ URL::to('flowmanager/create?')}}flow_id={{$flow_id}}&modul=1" class="btn btn-primary  btn-lg btn-sm pull-right">Add</a>
+</h2>
 
-<br>
 <ul id="sortable">
 	@foreach($sysflowManager as $key => $value)        
     <li id="{{ $value->step_id }}">
         <span ></span>
         <div>
-        	<b>&nbsp;&nbsp; {{ $value->flow->name }} &nbsp;&nbsp; - &nbsp;&nbsp; {{ $value->step->name }}  &nbsp;&nbsp; - &nbsp;&nbsp; {{ $value->nextStep->name }} - &nbsp;&nbsp; {{ $value->trigger }} </b> <br><br>
-        	&nbsp;&nbsp;<a href="{{ URL::to('flowmanager/delete/')}}/{{ $value->id }}?flow_id={{ $value->flow_id }}" class="btn btn-danger btn-lg btn-sm pull-right" onclick="return confirm('Anda yakin ingin menghapus Flow Manager ini?')">Drop</a>
+        	<b>
+                &nbsp;&nbsp; Step &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ $value->step->name }}  <br>
+                &nbsp;&nbsp; Next &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ $value->nextStep->name }} <br> 
+                &nbsp;&nbsp; Trigger : {{ $value->trigger }} </b> 
+        	   &nbsp;&nbsp;<a href="{{ URL::to('flowmanager/delete/')}}/{{ $value->id }}?flow_id={{ $value->flow_id }}" class="btn btn-danger btn-lg btn-sm pull-right" onclick="return confirm('Anda yakin ingin menghapus Flow Manager ini?')">Drop</a>
         </div>
     </li>
     @endforeach

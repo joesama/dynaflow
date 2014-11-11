@@ -2,9 +2,9 @@
 @section('judul', 'Flow Management')
 
 @section('content')
-<p>
-    <a href="{{ URL::to('sysflow/create?modul=1')}}" class="btn btn-primary btn-lg btn-sm" role="button">Add</a>
-</p>
+<h2> Flow
+    <a href="{{ URL::to('sysflow/create?modul=1')}}" class="btn btn-primary btn-lg btn-sm pull-right" role="button">Add</a>
+</h2>
 
 <table class="table table-bordered table-condensed">
     <thead>
