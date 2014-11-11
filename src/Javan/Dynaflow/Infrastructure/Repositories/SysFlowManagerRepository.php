@@ -38,6 +38,7 @@ class SysFlowManagerRepository implements SysFlowManagerRepositoryInterface
      */
     public function all($flow_id)
     {
+        //$this->model->where('id', 1)->update(array('trigger' => 'ABD'));
         return $this->model->where('flow_id', $flow_id)->get();
     } 
 
@@ -57,29 +58,23 @@ class SysFlowManagerRepository implements SysFlowManagerRepositoryInterface
      *
      * @return object
      */
-    public function update($list_order)
+    public function drag($list_order)
     {
          $list = explode(',' , $list_order);
          $flow_id = "";
+         $no = 0;
         foreach($list as $id) {
-            $dt_flow = $this->model->where('id', $id)->get();
+            $dt_flow = $this->model->where('flow_id', $_GET['flow_id'])->skip($no)->take(1)->get();
             foreach ($dt_flow as $flow){ 
-                $flow_id = $flow->flow_id;
-                $step_id = $flow->step_id;
-                $step_next_id = $flow->step_next_id;
+                $this->model->where('id', $flow->id)->update(array('step_id' => $id));
                 
-
+                $next = $this->model->where('id', '<', $flow->id)->orderBy('id', 'desc')->limit(1)->get();
+                foreach ($next as $sn) {
+                    $this->model->where('id', $sn->id)->update(array('step_next_id' => $flow->step_id));
+                }
             }
-             //$this->model->where('id', $id)->update(array('trigger' => 'ABD'));
+            $no++;
         }
-        $flowManagement = $this->model->where('flow_id', $flow_id)->get(); 
-        echo $flowManagement;
-        //echo $list_order;
-
-        //foreach($list as $id,  $flowManagement as $fm) {}
-         
-        //$this->model->where('id', 1)->update(array('trigger' => 'ABD'));
-         //return $this->model->all();
     } 
 
     /**

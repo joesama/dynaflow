@@ -38,6 +38,8 @@ Route::group(array('prefix' => 'flowmanager'), function () {
 	Route::get('/index/{id}', 'SysFlowManagerController@index');
 	Route::get('create', 'SysFlowManagerController@create');
 	Route::post('store', 'SysFlowManagerController@store');
+	Route::get('edit/{id}', 'SysFlowManagerController@edit');
 	Route::get('update/{id}', 'SysFlowManagerController@update');
+	Route::get('/index/drag/{id}', 'SysFlowManagerController@drag');
 	Route::get('delete/{id}', 'SysFlowManagerController@delete');
 });

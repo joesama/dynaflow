@@ -85,6 +85,12 @@ class SysFlowManagerController extends \BaseController {
 		
 	}
 
+	public function drag($list_order)
+	{
+		$sysflowManager = $this->sysFlowManagerRepo->drag($list_order);
+		
+	}
+
 
 	/**
 	 * Remove the specified resource from storage.

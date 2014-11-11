@@ -96,12 +96,14 @@ class SysFlowController extends \BaseController {
 
         try {
             $result = $command;	
+
+		
         } catch(ValidationException $e)
         {
-            return Redirect::to('/sysflow/update/'.$id.'?modul=1')->withErrors( $e->getErrors() );
+            return Redirect::to('/sysflow/edit/'.$id.'?modul=1')->withErrors( $e->getErrors() );
         } catch(\DomainException $e)
         {
-            return Redirect::to('sysflow/update/'.$id.'?modul=1')->withErrors( $e->getErrors() );
+            return Redirect::to('sysflow/edit/'.$id.'?modul=1')->withErrors( $e->getErrors() );
         }
 
         return Redirect::to('sysflow?modul=1')->with(['message' => 'success!']);

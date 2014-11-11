@@ -110,6 +110,6 @@ class SysFlowStepController extends \BaseController {
         // redirect
         Session::flash('message', 'Berhasil menghapus Flow Step!');
 
-        return Redirect::to('sysflowstep?modul=1');
+        return Redirect::to('sysflowstep?modul=2');
 	}
 }

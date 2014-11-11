@@ -2,6 +2,7 @@
 
 use Javan\Dynaflow\Domain\Model\Identity\SysFlow;
 
+
 class SysFlowRepository implements SysFlowRepositoryInterface
 {
    /**
@@ -53,11 +54,9 @@ class SysFlowRepository implements SysFlowRepositoryInterface
      */
     public function update($id)
     {
-        // $sysflow = SysFlow::find($id)->update(array(
-        //     'name' => $_POST['name']
-        // ));
-        //$sysflow->save();
-        $this->model->where('id', $id)->update(array('name' => $_POST['name']));
+        $this->model->where('id', $id)->update(array(
+            'name' => $_POST['name']
+        ));
     } 
 
     /**

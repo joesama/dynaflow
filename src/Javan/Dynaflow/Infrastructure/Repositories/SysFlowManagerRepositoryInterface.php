@@ -12,7 +12,7 @@ interface SysFlowManagerRepositoryInterface
      */
     public function add($sysFlowManager);
 
-    public function update($list_order);
+    public function drag($list_order);
 
     public function delete($id);
 }
