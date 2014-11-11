@@ -68,9 +68,12 @@ class SysFlowManagerRepository implements SysFlowManagerRepositoryInterface
             foreach ($dt_flow as $flow){ 
                 $this->model->where('id', $flow->id)->update(array('step_id' => $id));
                 
-                $next = $this->model->where('id', '<', $flow->id)->orderBy('id', 'desc')->limit(1)->get();
+                $next = $this->model->where('id', '<', $flow->id)->where('flow_id', $_GET['flow_id'])->orderBy('id', 'desc')->limit(1)->get();
                 foreach ($next as $sn) {
-                    $this->model->where('id', $sn->id)->update(array('step_next_id' => $flow->step_id));
+                    $dt_flow = $this->model->where('flow_id', $_GET['flow_id'])->skip($no)->take(1)->get();
+                    foreach ($dt_flow as $flow){
+                        $this->model->where('id', $sn->id)->update(array('step_next_id' => $flow->step_id));
+                    }
                 }
             }
             $no++;
