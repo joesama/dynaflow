@@ -32,7 +32,7 @@ class SysFlowStepRepository implements SysFlowStepRepositoryInterface
      */
     public function all()
     {
-        return $this->model->all();
+        return $this->model->where('sys_flow_id', $_GET['flow_id'])->get();
     }
 
     /**
