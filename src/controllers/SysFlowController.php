@@ -78,7 +78,7 @@ class SysFlowController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$sysflow = \Javan\Dynaflow\Domain\Model\Identity\SysFlow::find(1);
+		$sysflow = \Javan\Dynaflow\Domain\Model\Identity\SysFlow::find($id);
 
         return View::make('dynaflow::sysflow.form', compact('sysflow'));
 	}
@@ -92,7 +92,19 @@ class SysFlowController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		
+		$command = $this->sysFlowRepo->update($id);
+
+        try {
+            $result = $command;	
+        } catch(ValidationException $e)
+        {
+            return Redirect::to('/sysflow/update/'.$id.'?modul=1')->withErrors( $e->getErrors() );
+        } catch(\DomainException $e)
+        {
+            return Redirect::to('sysflow/update/'.$id.'?modul=1')->withErrors( $e->getErrors() );
+        }
+
+        return Redirect::to('sysflow?modul=1')->with(['message' => 'success!']);
 	}
 
 

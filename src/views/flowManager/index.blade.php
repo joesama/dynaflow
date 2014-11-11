@@ -12,7 +12,7 @@
         <span ></span>
         <div>
         	<b>&nbsp;&nbsp; {{ $value->flow->name }} &nbsp;&nbsp; - &nbsp;&nbsp; {{ $value->step->name }}  &nbsp;&nbsp; - &nbsp;&nbsp; {{ $value->trigger }} </b> <br>
-        	&nbsp;&nbsp;<a href="{{ URL::to('flowmanager/delete/')}}/{{ $value->id }}?flow_id={{ $value->flow_id }}" class="btn btn-danger right" onclick="return confirm('Anda yakin ingin menghapus Flow Manager ini?')">delete</a>
+        	&nbsp;&nbsp;<a href="{{ URL::to('flowmanager/delete/')}}/{{ $value->id }}?flow_id={{ $value->flow_id }}" class="btn btn-danger btn-lg btn-sm" onclick="return confirm('Anda yakin ingin menghapus Flow Manager ini?')">delete</a>
         </div>
     </li>
     @endforeach

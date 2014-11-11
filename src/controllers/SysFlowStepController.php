@@ -78,7 +78,7 @@ class SysFlowStepController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$sysflowstep = \Javan\Dynaflow\Domain\Model\Identity\SysFlowStep::find(1);
+		$sysflowstep = \Javan\Dynaflow\Domain\Model\Identity\SysFlowStep::find($id);
 
         return View::make('dynaflow::sysflowstep.form', compact('sysflowstep'));
 	}

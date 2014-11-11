@@ -51,11 +51,13 @@ class SysFlowRepository implements SysFlowRepositoryInterface
      *
      * @return object
      */
-    public function update($sysFlow)
+    public function update($id)
     {
-        $sample = $this->model;
-        $sample->name = $sysFlow->name;
-        $sample->save();
+        // $sysflow = SysFlow::find($id)->update(array(
+        //     'name' => $_POST['name']
+        // ));
+        //$sysflow->save();
+        $this->model->where('id', $id)->update(array('name' => $_POST['name']));
     } 
 
     /**

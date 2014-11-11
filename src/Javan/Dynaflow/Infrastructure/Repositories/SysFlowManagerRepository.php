@@ -38,7 +38,6 @@ class SysFlowManagerRepository implements SysFlowManagerRepositoryInterface
      */
     public function all($flow_id)
     {
-        //$this->model->where('id', 1)->update(array('trigger' => 'ABD'));
         return $this->model->where('flow_id', $flow_id)->get();
     } 
 

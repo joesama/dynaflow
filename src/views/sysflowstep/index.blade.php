@@ -4,7 +4,7 @@
 @section('content')
 
 <p>
-    <a href="{{ URL::to('sysflowstep/create?modul=1')}}" class="btn btn-primary btn-lg btn-sm" role="button">Add</a>
+    <a href="{{ URL::to('sysflowstep/create?modul=2')}}" class="btn btn-primary btn-lg btn-sm" role="button">Add</a>
 </p>
 
 <table class="table table-bordered table-condensed">
@@ -24,7 +24,7 @@
                 <td>{{ $value->name }}</td>
                 <td>{{ $value->action }}</td>
                 <td>{{ $value->created_at }} </td>
-                <td><a href="{{ URL::to('sysflowstep/edit/'.$value->id)}}?modul=1">Update</a> | 
+                <td><a href="{{ URL::to('sysflowstep/edit/'.$value->id)}}?modul=2">Update</a> | 
                     <a href="{{ URL::to('sysflowstep/delete/' . $value->id) }}" onclick="return confirm('Anda yakin ingin menghapus Flow Step ini?')">delete</a></td>
             </tr>
         @endforeach
