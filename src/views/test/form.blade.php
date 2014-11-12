@@ -4,7 +4,7 @@
 @section('content')
 <?php if(isset($flowManager)){ ?>
 <h2>Step {{$flowManager->step->name}}
-    <a href="{{ URL::to('')}}/{{$flowManager->nextStep->action}}?step={{$flowManager->step_next_id}}" class="btn btn-primary btn-lg btn-sm  pull-right" role="button">{{$flowManager->nextStep->name}}</a>
+    <!-- <a href="{{ URL::to('')}}/{{$flowManager->nextStep->action}}?step={{$flowManager->step_next_id}}" class="btn btn-primary btn-lg btn-sm  pull-right" role="button">{{$flowManager->nextStep->name}}</a> -->
 </h2>
  
         {{ Form::open(array('url' => $flowManager->nextStep->action.'?step='.$flowManager->step_next_id , 'class' => 'form-horizontal')) }}
@@ -18,8 +18,8 @@
 
      <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" name="simpan" class="btn btn-primary" value="simpan">Create</button>
-            <a href="{{ URL::to('sysflow')}}" class="btn btn-default">Cancel</a>
+            <button type="submit" name="simpan" class="btn btn-primary" value="simpan">{{$flowManager->nextStep->name}}</button>
+            
         </div>
     </div>
     {{ Form::close() }}

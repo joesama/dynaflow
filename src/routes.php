@@ -48,8 +48,8 @@ Route::group(array('prefix' => 'flowmanager'), function () {
 Route::group(array('prefix' => 'test'), function () {
 	Route::get('/index', 'TestController@index');
 	Route::get('/piring', 'TestController@piring');
-	Route::post('/nasi', 'TestController@nasi');
-	Route::get('/lauk', 'TestController@lauk');
+	Route::get('/nasi', 'TestController@nasi');
+	Route::post('/lauk', 'TestController@lauk');
 	Route::get('/sayur', 'TestController@sayur');
 	Route::get('/makan', 'TestController@makan');
 	Route::get('/simpan', 'TestController@simpan');

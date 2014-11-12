@@ -23,13 +23,16 @@ class TestController extends \BaseController {
 	public function nasi()
 	{
 		$flowManager = $this->sysFlowManagerRepo->step();
-		//return View::make('dynaflow::test.index', compact('flowManager'));
-		return Redirect::to($flowManager->nextStep->action.'?step='.$flowManager->step_next_id)->with(['message' => 'success!']);
+
+		return View::make('dynaflow::test.form', compact('flowManager'));
+		
+		
 	}
 	public function lauk()
 	{
 		$flowManager = $this->sysFlowManagerRepo->step();
-		return View::make('dynaflow::test.index', compact('flowManager'));
+		//return View::make('dynaflow::test.index', compact('flowManager'));
+		return Redirect::to($flowManager->nextStep->action.'?step='.$flowManager->step_next_id)->with(['message' => 'success!']);
 	}
 	public function sayur()
 	{
