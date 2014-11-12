@@ -4,7 +4,7 @@ use Javan\Dynaflow\Application\Command;
 use Javan\Dynaflow\Application\Events\Dispatcher;
 use Javan\Dynaflow\Application\Handler;
 use Javan\Dynaflow\Domain\Model\Identity\SysFlowStep;
-use Javan\Dynaflow\Infrastructure\Repositories\SysFlowStepRepositoryInterface;
+use Javan\Dynaflow\Infrastructure\Repositories\SysFlowStep\SysFlowStepRepositoryInterface;
 use Javan\Dynaflow\Domain\Validators\SysFlowStepValidator;
 
 class UpdateSysFlowStepHandler implements Handler

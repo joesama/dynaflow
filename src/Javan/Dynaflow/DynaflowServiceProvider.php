@@ -35,9 +35,9 @@ class DynaflowServiceProvider extends ServiceProvider {
             return new Application\CommandBus( $this->app, new Application\NameInflector );
         });
 
-	  	$this->app->bind('Javan\Dynaflow\Infrastructure\Repositories\SysFlowRepositoryInterface', 'Javan\Dynaflow\Infrastructure\Repositories\SysFlowRepository');
+	  	$this->app->bind('Javan\Dynaflow\Infrastructure\Repositories\SysFlow\SysFlowRepositoryInterface', 'Javan\Dynaflow\Infrastructure\Repositories\SysFlow\SysFlowRepository');
 
-	    $this->app->bind('Javan\Dynaflow\Infrastructure\Repositories\SysFlowStepRepositoryInterface', 'Javan\Dynaflow\Infrastructure\Repositories\SysFlowStepRepository');
+	    $this->app->bind('Javan\Dynaflow\Infrastructure\Repositories\SysFlowStep\SysFlowStepRepositoryInterface', 'Javan\Dynaflow\Infrastructure\Repositories\SysFlowStep\SysFlowStepRepository');
 
 	  	$this->app->bind('Javan\Dynaflow\Infrastructure\Repositories\SysFlowManagerRepositoryInterface', 'Javan\Dynaflow\Infrastructure\Repositories\SysFlowManagerRepository');
 
