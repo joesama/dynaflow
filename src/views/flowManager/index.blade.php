@@ -42,13 +42,6 @@ $(function() {
             });
         }
     });
-     
-        // var refreshId = setInterval(function()
-        // {
-        //     $container.load('content({{$flow_id}})');
-        // }, 9000);
-        
-
 });
 </script>
 @stop
