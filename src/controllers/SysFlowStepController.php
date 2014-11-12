@@ -1,6 +1,6 @@
 <?php
 use Javan\Dynaflow\Application\CommandBus;
-use Javan\Dynaflow\Infrastructure\Repositories\SysFlowStepRepositoryInterface;
+use Javan\Dynaflow\Infrastructure\Repositories\SysFlowStep\SysFlowStepRepositoryInterface;
 use Javan\Dynaflow\Validation\ValidationException;
 
 class SysFlowStepController extends \BaseController {

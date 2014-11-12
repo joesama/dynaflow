@@ -1,6 +1,6 @@
 <?php
 use Javan\Dynaflow\Application\CommandBus;
-use Javan\Dynaflow\Infrastructure\Repositories\SysFlowRepositoryInterface;
+use Javan\Dynaflow\Infrastructure\Repositories\SysFlow\SysFlowRepositoryInterface;
 use Javan\Dynaflow\Validation\ValidationException;
 
 class SysFlowController extends \BaseController {

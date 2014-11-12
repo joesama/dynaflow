@@ -4,7 +4,7 @@ use Javan\Dynaflow\Application\Command;
 use Javan\Dynaflow\Application\Events\Dispatcher;
 use Javan\Dynaflow\Application\Handler;
 use Javan\Dynaflow\Domain\Model\Identity\SysFlow;
-use Javan\Dynaflow\Infrastructure\Repositories\SysFlowRepositoryInterface;
+use Javan\Dynaflow\Infrastructure\Repositories\SysFlow\SysFlowRepositoryInterface;
 use Javan\Dynaflow\Domain\Validators\SysFlowValidator;
 
 

@@ -1,4 +1,4 @@
-<?php namespace Javan\Dynaflow\Infrastructure\Repositories;
+<?php namespace Javan\Dynaflow\Infrastructure\Repositories\SysFlowStep;
 
 use Javan\Dynaflow\Domain\Model\Identity\SysFlowStep;
 

@@ -1,4 +1,4 @@
-<?php namespace Javan\Dynaflow\Infrastructure\Repositories;
+<?php namespace Javan\Dynaflow\Infrastructure\Repositories\SysFlow;
 
 use Javan\Dynaflow\Domain\Model\Identity\SysFlow;
 interface SysFlowRepositoryInterface    
