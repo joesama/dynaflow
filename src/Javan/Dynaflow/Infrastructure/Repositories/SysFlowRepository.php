@@ -21,9 +21,11 @@ class SysFlowRepository implements SysFlowRepositoryInterface
      *
      * @return null
      */
-    public function add(SysFlow $sysFlow)
+    public function add($sysFlow)
     {
-        $sysFlow->save();
+        $data = new SysFlow;
+        $data->name = $sysFlow->name;
+        $data->save();
     }
 
     /**
@@ -52,11 +54,11 @@ class SysFlowRepository implements SysFlowRepositoryInterface
      *
      * @return object
      */
-    public function update($id)
+    public function update($sysFlow)
     {
-        $this->model->where('id', $id)->update(array(
-            'name' => $_POST['name']
-        ));
+        $data = SysFlow::find($sysFlow->id);
+        $data->name = $sysFlow->name;
+        $data->save();
     } 
 
     /**

@@ -92,12 +92,10 @@ class SysFlowController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$command = $this->sysFlowRepo->update($id);
+		$command = new UpdateSysFlowCommand(Input::all() + array('id'=>$id));
 
         try {
-            $result = $command;	
-
-		
+            $result = $this->commandBus->execute($command);	
         } catch(ValidationException $e)
         {
             return Redirect::to('/sysflow/edit/'.$id.'?modul=1')->withErrors( $e->getErrors() );
@@ -107,6 +105,7 @@ class SysFlowController extends \BaseController {
         }
 
         return Redirect::to('sysflow?modul=1')->with(['message' => 'success!']);
+
 	}
 
 

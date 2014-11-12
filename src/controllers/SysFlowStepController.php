@@ -92,7 +92,19 @@ class SysFlowStepController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$command = new UpdateSysFlowStepCommand(Input::all() + array('id'=>$id));
+
+        try {
+            $result = $this->commandBus->execute($command);	
+        } catch(ValidationException $e)
+        {
+            return Redirect::to('/sysflowstep/edit/'.$id.'?modul=2')->withErrors( $e->getErrors() );
+        } catch(\DomainException $e)
+        {
+            return Redirect::to('sysflowstep/edit/'.$id.'?modul=2')->withErrors( $e->getErrors() );
+        }
+
+        return Redirect::to('sysflowstep?modul=2')->with(['message' => 'success!']);
 	}
 
 

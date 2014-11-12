@@ -1,11 +1,11 @@
-<?php namespace Javan\Dynaflow\Application\Identity;
+<?php namespace Javan\Dynaflow\Application\Identity\SysFlow;
 
 use Javan\Dynaflow\Application\Command;
 use Javan\Dynaflow\Application\Events\Dispatcher;
 use Javan\Dynaflow\Application\Handler;
 use Javan\Dynaflow\Domain\Model\Identity\SysFlow;
 use Javan\Dynaflow\Infrastructure\Repositories\SysFlowRepositoryInterface;
-use Javan\Dynaflow\Domain\Validators\CreateSysFlowValidator;
+use Javan\Dynaflow\Domain\Validators\SysFlowValidator;
 
 
 class CreateSysFlowHandler implements Handler
@@ -18,12 +18,12 @@ class CreateSysFlowHandler implements Handler
     /**
      * Create a new CreateSysFlowHandler
      *
-     * @param CreateSysFlowValidator $validator
+     * @param SysFlowValidator $validator
      * @param SysFlowRepositoryInterface $sysFlowRepo
      * @param Dispatcher $dispatcher
      * @return void
      */
-    public function __construct(CreateSysFlowValidator $validator, SysFlowRepositoryInterface $sysFlowRepo, Dispatcher $dispatcher)
+    public function __construct(SysFlowValidator $validator, SysFlowRepositoryInterface $sysFlowRepo, Dispatcher $dispatcher)
     {
         $this->validator = $validator;
         $this->sysFlowRepo = $sysFlowRepo;
@@ -39,7 +39,7 @@ class CreateSysFlowHandler implements Handler
     public function handle(Command $command)
     { 
         $this->validate($command);
-        $this->save($command);
+        $this->register($command);
     }
 
     protected function validate($command)
@@ -47,11 +47,8 @@ class CreateSysFlowHandler implements Handler
         $this->validator->validate($command);
     }
 
-    protected function save($command)
+    protected function register($command)
     {
-        $sysFlow = new SysFlow;
-        $sysFlow->name = $command->name;
-
-        $this->sysFlowRepo->add($sysFlow);
+        $this->sysFlowRepo->add($command);
     }
 }

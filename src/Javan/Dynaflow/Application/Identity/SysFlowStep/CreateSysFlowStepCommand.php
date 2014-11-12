@@ -1,9 +1,9 @@
-<?php namespace Javan\Dynaflow\Application\Identity;
+<?php namespace Javan\Dynaflow\Application\Identity\SysFlowStep;
 
 use Javan\Dynaflow\Gettable;
 use Javan\Dynaflow\Application\Command;
 
-class CreateSysFlowCommand implements Command
+class CreateSysFlowStepCommand implements Command
 {
     use Gettable;
 

@@ -1,13 +1,13 @@
-<?php namespace Javan\Dynaflow\Application\Identity;
+<?php namespace Javan\Dynaflow\Application\Identity\SysFlowStep;
 
 use Javan\Dynaflow\Application\Command;
 use Javan\Dynaflow\Application\Events\Dispatcher;
 use Javan\Dynaflow\Application\Handler;
 use Javan\Dynaflow\Domain\Model\Identity\SysFlowStep;
 use Javan\Dynaflow\Infrastructure\Repositories\SysFlowStepRepositoryInterface;
-use Javan\Dynaflow\Domain\Validators\CreateSysFlowStepValidator;
+use Javan\Dynaflow\Domain\Validators\SysFlowStepValidator;
 
-class CreateSysFlowStepHandler implements Handler
+class UpdateSysFlowStepHandler implements Handler
 {
     
     private $sysFlowStepRepo;
@@ -18,7 +18,7 @@ class CreateSysFlowStepHandler implements Handler
      * @param SysFlowRepositoryInterface $sysFlowStepRepo
      * @return void
      */
-    public function __construct(CreateSysFlowStepValidator $validator, SysFlowStepRepositoryInterface $sysFlowStepRepo, Dispatcher $dispatcher)
+    public function __construct(SysFlowStepValidator $validator, SysFlowStepRepositoryInterface $sysFlowStepRepo, Dispatcher $dispatcher)
     {
         $this->validator = $validator;
         $this->sysFlowStepRepo = $sysFlowStepRepo;
@@ -34,7 +34,7 @@ class CreateSysFlowStepHandler implements Handler
     public function handle(Command $command)
     { 
         $this->validate($command);
-        $this->save($command);
+        $this->register($command);
     }
 
     protected function validate($command)
@@ -42,13 +42,8 @@ class CreateSysFlowStepHandler implements Handler
         $this->validator->validate($command);
     }
 
-    protected function save($command)
-    {
-        $sysFlowStep = new SysFlowStep;
-        $sysFlowStep->sys_flow_id = $command->sys_flow_id;
-        $sysFlowStep->name = $command->name;
-        $sysFlowStep->action = $command->action;
-        
-        $this->sysFlowStepRepo->add($sysFlowStep);
+    protected function register($command)
+    {   
+        $this->sysFlowStepRepo->update($command);
     }
 }

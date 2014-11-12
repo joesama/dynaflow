@@ -12,7 +12,7 @@ interface SysFlowStepRepositoryInterface
      * @param SysFlowStep $sysFlowStep
      * @return void
      */
-    public function add(SysFlowStep $sysFlowStep);
+    public function add($sysFlowStep);
 
     public function update($sysFlowStep);
 

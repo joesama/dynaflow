@@ -11,11 +11,11 @@ interface SysFlowRepositoryInterface
      * @param SysFlow $sysFlow
      * @return void
      */
-    public function add(SysFlow $sysFlow);
+    public function add($sysFlow);
 
     public function update($sysFlow);
 
-    public function delete($sysFlow);
+    public function delete($id);
 
 
 }
