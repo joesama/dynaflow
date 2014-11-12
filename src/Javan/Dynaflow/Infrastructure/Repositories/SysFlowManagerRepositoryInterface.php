@@ -14,5 +14,7 @@ interface SysFlowManagerRepositoryInterface
 
     public function drag($list_order);
 
+    public function step();
+
     public function delete($id);
 }

@@ -38,8 +38,22 @@ class SysFlowManagerRepository implements SysFlowManagerRepositoryInterface
      */
     public function all($flow_id)
     {
-        //$this->model->where('id', 1)->update(array('trigger' => 'ABD'));
         return $this->model->where('flow_id', $flow_id)->get();
+    }
+
+    public function step()
+    {
+        if(isset($_GET['step'])){
+            $step = $this->model->where('step_id', $_GET['step'])->get();
+            foreach ( $step as $key => $value) {
+                return $value;# code...
+            }
+        }elseif(isset($_POST['step'])){
+             $step = $this->model->where('step_id', $_POST['step'])->get();
+            foreach ( $step as $key => $value) {
+                return $value;# code...
+            }
+        }
     } 
 
     /**
