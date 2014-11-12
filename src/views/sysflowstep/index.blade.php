@@ -20,7 +20,7 @@
     <tbody>
         @foreach($sysflowstep as $key => $value)
             <tr>
-                <td>{{ $value->getFlowName() }}</td>
+                <td>{{ $value->flow->name }}</td>
                 <td>{{ $value->name }}</td>
                 <td>{{ $value->action }}</td>
                 <td>{{ $value->created_at }} </td>

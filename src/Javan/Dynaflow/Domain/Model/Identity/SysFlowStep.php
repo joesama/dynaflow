@@ -14,11 +14,4 @@ class SysFlowStep extends Model
     {
         return $this->belongsTo('Javan\Dynaflow\Domain\Model\Identity\SysFlow', 'sys_flow_id');
     }
-
-    public function getFlowName(){
-    	if(isset($this->flow)){
-    		return $this->flow->name;
-    	}
-    	return 'N/A';
-    }
 }
