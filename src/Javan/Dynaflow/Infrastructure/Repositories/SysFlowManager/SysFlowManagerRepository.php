@@ -1,4 +1,4 @@
-<?php namespace Javan\Dynaflow\Infrastructure\Repositories;
+<?php namespace Javan\Dynaflow\Infrastructure\Repositories\SysFlowManager;
 
 use Javan\Dynaflow\Domain\Model\Identity\SysFlowManager;
 
@@ -23,12 +23,12 @@ class SysFlowManagerRepository implements SysFlowManagerRepositoryInterface
      */
     public function add($sysFlowManager)
     {
-        $sample = $this->model;
-        $sample->flow_id = $sysFlowManager->flow_id;
-        $sample->step_id = $sysFlowManager->step_id;
-        $sample->step_next_id = $sysFlowManager->step_next_id;
-        $sample->trigger = $sysFlowManager->trigger;
-        $sample->save();
+        $sysFlow = new SysFlowManager;
+        $sysFlow->flow_id = $sysFlowManager->flow_id;
+        $sysFlow->step_id = $sysFlowManager->step_id;
+        $sysFlow->step_next_id = $sysFlowManager->step_next_id;
+        $sysFlow->trigger = $sysFlowManager->trigger;
+        $sysFlow->save();
     }
 
     /**

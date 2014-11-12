@@ -1,6 +1,6 @@
 <?php
 use Javan\Dynaflow\Application\CommandBus;
-use Javan\Dynaflow\Infrastructure\Repositories\SysFlowManagerRepositoryInterface;
+use Javan\Dynaflow\Infrastructure\Repositories\SysFlowManager\SysFlowManagerRepositoryInterface;
 
 
 class TestController extends \BaseController {

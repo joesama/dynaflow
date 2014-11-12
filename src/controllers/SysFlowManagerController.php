@@ -1,8 +1,9 @@
 <?php
 use Javan\Dynaflow\Application\CommandBus;
-use Javan\Dynaflow\Infrastructure\Repositories\SysFlowManagerRepositoryInterface;
-use Javan\Dynaflow\Infrastructure\Repositories\SysFlowRepositoryInterface;
-use Javan\Dynaflow\Infrastructure\Repositories\SysFlowStepRepositoryInterface;
+use Javan\Dynaflow\Infrastructure\Repositories\SysFlowManager\SysFlowManagerRepositoryInterface;
+use Javan\Dynaflow\Infrastructure\Repositories\SysFlow\SysFlowRepositoryInterface;
+use Javan\Dynaflow\Infrastructure\Repositories\SysFlowStep\SysFlowStepRepositoryInterface;
+use Javan\Dynaflow\Validation\ValidationException;
 
 class SysFlowManagerController extends \BaseController {
 
@@ -51,8 +52,18 @@ class SysFlowManagerController extends \BaseController {
 	public function store()
 	{
 		$command = new CreateSysFlowManagerCommand(Input::all());
-        $result = $this->commandBus->execute($command);
-        $flow_id = $_POST['flow_id'];
+		$flow_id = $_POST['flow_id'];
+
+        try {
+            $result = $this->commandBus->execute($command);
+        } catch(ValidationException $e)
+        {
+            return Redirect::to('/flowmanager/create?flow_id='.$flow_id.'?modul=1')->withErrors( $e->getErrors() );
+        } catch(\DomainException $e)
+        {
+            return Redirect::to('/flowmanager/create?flow_id='.$flow_id.'?modul=1')->withErrors( $e->getErrors() );
+        }
+
         return Redirect::to('/flowmanager/index/'.$flow_id.'?modul=1')->with([ 'message' => 'success' ]);
 	}
 

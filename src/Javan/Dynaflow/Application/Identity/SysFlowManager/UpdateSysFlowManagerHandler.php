@@ -1,11 +1,11 @@
-<?php namespace Javan\Dynaflow\Application\Identity;
+<?php namespace Javan\Dynaflow\Application\Identity\SysFlowManager;
 
 use Javan\Dynaflow\Application\Command;
 use Javan\Dynaflow\Application\Handler;
 use Javan\Dynaflow\Domain\Model\Identity\SysFlowManager;
-use Javan\Dynaflow\Infrastructure\Repositories\SysFlowManagerRepositoryInterface;
+use Javan\Dynaflow\Infrastructure\Repositories\SysFlowManager\SysFlowManagerRepositoryInterface;
 
-class CreateSysFlowManagerHandler implements Handler
+class UpdateSysFlowManagerHandler implements Handler
 {
     /**
      * @var SysFlowService

@@ -39,7 +39,7 @@ class DynaflowServiceProvider extends ServiceProvider {
 
 	    $this->app->bind('Javan\Dynaflow\Infrastructure\Repositories\SysFlowStep\SysFlowStepRepositoryInterface', 'Javan\Dynaflow\Infrastructure\Repositories\SysFlowStep\SysFlowStepRepository');
 
-	  	$this->app->bind('Javan\Dynaflow\Infrastructure\Repositories\SysFlowManagerRepositoryInterface', 'Javan\Dynaflow\Infrastructure\Repositories\SysFlowManagerRepository');
+	  	$this->app->bind('Javan\Dynaflow\Infrastructure\Repositories\SysFlowManager\SysFlowManagerRepositoryInterface', 'Javan\Dynaflow\Infrastructure\Repositories\SysFlowManager\SysFlowManagerRepository');
 
 	  	$this->app->booting(function()
 		{
@@ -48,7 +48,8 @@ class DynaflowServiceProvider extends ServiceProvider {
 		  	$loader->alias('UpdateSysFlowCommand', 'Javan\Dynaflow\Application\Identity\SysFlow\UpdateSysFlowCommand');
 		  	$loader->alias('CreateSysFlowStepCommand', 'Javan\Dynaflow\Application\Identity\SysFlowStep\CreateSysFlowStepCommand');
 		  	$loader->alias('UpdateSysFlowStepCommand', 'Javan\Dynaflow\Application\Identity\SysFlowStep\UpdateSysFlowStepCommand');
-		  	$loader->alias('CreateSysFlowManagerCommand', 'Javan\Dynaflow\Application\Identity\CreateSysFlowManagerCommand');
+		  	$loader->alias('CreateSysFlowManagerCommand', 'Javan\Dynaflow\Application\Identity\SysFlowManager\CreateSysFlowManagerCommand');
+		  	//$loader->alias('UpdateSysFlowManagerCommand', 'Javan\Dynaflow\Application\Identity\SysFlowManager\UpdateSysFlowManagerCommand');
 		});
 	}
 
