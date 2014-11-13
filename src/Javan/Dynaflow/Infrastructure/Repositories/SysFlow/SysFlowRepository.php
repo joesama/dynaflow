@@ -8,7 +8,7 @@ class SysFlowRepository implements SysFlowRepositoryInterface
    /**
      * Construct 
      *
-     * @param  Eloquent     $model 
+     * @param  SysFlow     $model 
      * @return null
      */
     public function __construct(SysFlow $model)    
@@ -19,7 +19,8 @@ class SysFlowRepository implements SysFlowRepositoryInterface
     /**
      * Insert 
      *
-     * @return null
+     * @param  $sysFlow
+     * @return boolean
      */
     public function add($sysFlow)
     {
@@ -41,6 +42,7 @@ class SysFlowRepository implements SysFlowRepositoryInterface
     /**
      * All Data with paginate
      *
+     * @param $limit
      * @return object
      */
     public function paginate($limit = 10)
@@ -50,8 +52,9 @@ class SysFlowRepository implements SysFlowRepositoryInterface
     } 
 
     /**
-     * All Data 
+     * Update
      *
+     * @param sysFlow
      * @return object
      */
     public function update($sysFlow)
@@ -62,9 +65,10 @@ class SysFlowRepository implements SysFlowRepositoryInterface
     } 
 
     /**
-     * All Data 
+     * Delete 
      *
-     * @return object
+     * @param $id
+     * @return boolean
      */
     public function delete($id)
     {

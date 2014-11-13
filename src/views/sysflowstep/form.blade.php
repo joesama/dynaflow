@@ -10,9 +10,8 @@ if (isset($sysflowstep)) {
 ?>
 
 <?php
-    $sysflow = array('' => 'Pilih Flow');
-    
-    $sysflow = $sysflow + $sysflow = \Javan\Dynaflow\Domain\Model\Identity\SysFlow::lists('name', 'id');
+    $sysflow = array('' => '');
+    $sysflow = $sysflow + \Javan\Dynaflow\Domain\Model\Identity\SysFlow::lists('name', 'id');
 ?>
 
 @section('content')

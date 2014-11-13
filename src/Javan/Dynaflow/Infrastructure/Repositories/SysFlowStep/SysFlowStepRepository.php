@@ -7,7 +7,7 @@ class SysFlowStepRepository implements SysFlowStepRepositoryInterface
    /**
      * Construct 
      *
-     * @param  Eloquent     $model 
+     * @param  SysFlowStep     $model 
      * @return null
      */
     public function __construct(SysFlowStep $model)    
@@ -18,7 +18,8 @@ class SysFlowStepRepository implements SysFlowStepRepositoryInterface
     /**
      * Insert 
      *
-     * @return null
+     * @param $sysFlowStep
+     * @return boolean
      */
     public function add($sysFlowStep)
     {
@@ -42,6 +43,7 @@ class SysFlowStepRepository implements SysFlowStepRepositoryInterface
     /**
      * All Data with paginate
      *
+     * @param $limit
      * @return object
      */
     public function paginate($limit = 10)
@@ -53,7 +55,8 @@ class SysFlowStepRepository implements SysFlowStepRepositoryInterface
     /**
      * All Data 
      *
-     * @return object
+     * @param $sysFlowStep
+     * @return boolean
      */
     public function update($sysFlowStep)
     {
@@ -67,7 +70,8 @@ class SysFlowStepRepository implements SysFlowStepRepositoryInterface
     /**
      * All Data 
      *
-     * @return object
+     * @param $id
+     * @return boolean
      */
     public function delete($id)
     {

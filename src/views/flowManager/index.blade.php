@@ -2,7 +2,7 @@
 @section('judul', 'Flow Management')
 
 @section('content')
-<h2>FLow Management {{$sysflow}}
+<h2>Flow Management {{$sysflow}}
     <a href="{{ URL::to('flowmanager/create?')}}flow_id={{$flow_id}}&modul=1" class="btn btn-primary  btn-lg btn-sm pull-right">Add</a>
 </h2>
 

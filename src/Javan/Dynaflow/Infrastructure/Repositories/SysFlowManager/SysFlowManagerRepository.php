@@ -7,7 +7,7 @@ class SysFlowManagerRepository implements SysFlowManagerRepositoryInterface
    /**
      * Construct 
      *
-     * @param  Eloquent     $model 
+     * @param  SysFlowManager     $model 
      * @return null
      */
     public function __construct(SysFlowManager $model)    
@@ -19,7 +19,8 @@ class SysFlowManagerRepository implements SysFlowManagerRepositoryInterface
     /**
      * Insert 
      *
-     * @return null
+     * @param $sysFlowManager
+     * @return boolean
      */
     public function add($sysFlowManager)
     {
@@ -34,6 +35,7 @@ class SysFlowManagerRepository implements SysFlowManagerRepositoryInterface
     /**
      * All Data 
      *
+     * @param @flow_id
      * @return object
      */
     public function all($flow_id)
@@ -59,6 +61,7 @@ class SysFlowManagerRepository implements SysFlowManagerRepositoryInterface
     /**
      * All Data with paginate
      *
+     * @param $limit
      * @return object
      */
     public function paginate($limit = 10)
@@ -68,15 +71,16 @@ class SysFlowManagerRepository implements SysFlowManagerRepositoryInterface
     } 
 
     /**
-     * All Data 
+     * Drag 
      *
-     * @return object
+     * @param $list_order
+     * 
      */
     public function drag($list_order)
     {
-         $list = explode(',' , $list_order);
-         $flow_id = "";
-         $no = 0;
+        $list = explode(',' , $list_order);
+        $flow_id = "";
+        $no = 0;
         foreach($list as $id) {
             $dt_flow = $this->model->where('flow_id', $_GET['flow_id'])->skip($no)->take(1)->get();
             foreach ($dt_flow as $flow){ 
@@ -97,6 +101,7 @@ class SysFlowManagerRepository implements SysFlowManagerRepositoryInterface
     /**
      * All Data 
      *
+     * @param $id
      * @return object
      */
     public function delete($id)
