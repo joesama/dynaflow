@@ -8,6 +8,7 @@ class DynaFlowSeeder extends Seeder
 		DB::table('sys_flow_step')->delete();
 		DB::table('sys_flow')->delete();
 
+		//flow
 		$sys_flow = array(
 			array(
 				'id'		 => 1,
@@ -18,6 +19,7 @@ class DynaFlowSeeder extends Seeder
 		);
 		DB::table('sys_flow')->insert( $sys_flow );
 
+		//flow step
 		$sys_flow_step = array(
 			array(
 				'id'		 	=> 1,
@@ -65,6 +67,7 @@ class DynaFlowSeeder extends Seeder
 		);
 		DB::table('sys_flow_step')->insert( $sys_flow_step );
 
+		//flow manager
 		$sys_flow_manager = array(
 			array(
 				'id'			=> 1,
