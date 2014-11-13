@@ -7,14 +7,12 @@ class CreateSysFlowManagerCommand implements Command
 {
     use Gettable;
 
-    /**
-     * @var string
-     */
     protected $data;
 
     /**
      * Create a new CreateSysFlowManagerCommand
      *
+     * @param $data
      * @return void
      */
     public function __construct($data)

@@ -7,17 +7,12 @@ class UpdateSysFlowStepCommand implements Command
 {
     use Gettable;
 
-    /**
-     * @var string
-     */
     protected $data;
 
     /**
-     * Create a new CreateSysFlowCommand
+     * UpdateSysFlowStepCommand
      *
-     * @param string $name
-     * @param datetime $created_at
-     * @param datetime $update_at
+     * @param $data
      * @return void
      */
     public function __construct($data)

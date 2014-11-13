@@ -7,17 +7,12 @@ class UpdateSysFlowCommand implements Command
 {
     use Gettable;
 
-    /**
-     * @var string
-     */
     protected $data;
 
     /**
-     * Create a new CreateSysFlowCommand
+     * UpdateSysFlowCommand
      *
-     * @param string $name
-     * @param datetime $created_at
-     * @param datetime $update_at
+     * @param $data
      * @return void
      */
     public function __construct($data)

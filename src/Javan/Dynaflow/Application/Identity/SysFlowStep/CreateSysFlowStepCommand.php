@@ -15,9 +15,7 @@ class CreateSysFlowStepCommand implements Command
     /**
      * Create a new CreateSysFlowCommand
      *
-     * @param string $name
-     * @param datetime $created_at
-     * @param datetime $update_at
+     * @param object $data
      * @return void
      */
     public function __construct($data)

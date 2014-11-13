@@ -13,9 +13,11 @@ class UpdateSysFlowStepHandler implements Handler
     private $sysFlowStepRepo;
 
     /**
-     * Create a new CreateSysStepFlowHandler
+     * UpdateSysFlowStepHandler
      *
-     * @param SysFlowRepositoryInterface $sysFlowStepRepo
+     * @param SysFlowStepValidator $validator
+     * @param SysFlowStepRepositoryInterface $sysFlowStepRepo
+     * @param Dispatcher $dispatcher
      * @return void
      */
     public function __construct(SysFlowStepValidator $validator, SysFlowStepRepositoryInterface $sysFlowStepRepo, Dispatcher $dispatcher)
@@ -37,11 +39,23 @@ class UpdateSysFlowStepHandler implements Handler
         $this->register($command);
     }
 
+    /**
+     * validate object
+     *
+     * @param $command
+     * @return void
+     */
     protected function validate($command)
     {
         $this->validator->validate($command);
     }
 
+    /**
+     * register object
+     *
+     * @param $command
+     * @return void
+     */
     protected function register($command)
     {   
         $this->sysFlowStepRepo->update($command);

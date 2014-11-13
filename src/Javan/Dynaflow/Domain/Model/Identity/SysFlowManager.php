@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Entity
- * Table(name="sys_flow")
+ * Table(name="sys_flow_manager")
  */
 class SysFlowManager extends Model
 {

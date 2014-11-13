@@ -11,14 +11,14 @@ use Javan\Dynaflow\Domain\Validators\SysFlowValidator;
 class UpdateSysFlowHandler implements Handler
 {
     /**
-     * @var SysFlowService
+     * @var SysFlowRepositoryInterface
      */
     private $sysFlowRepo;
 
     /**
-     * Create a new CreateSysFlowHandler
+     * UpdateSysFlowHandler
      *
-     * @param CreateSysFlowValidator $validator
+     * @param SysFlowValidator $validator
      * @param SysFlowRepositoryInterface $sysFlowRepo
      * @param Dispatcher $dispatcher
      * @return void
@@ -42,11 +42,23 @@ class UpdateSysFlowHandler implements Handler
         $this->register($command);
     }
 
+    /**
+     * validate object
+     *
+     * @param $command
+     * @return void
+     */
     protected function validate($command)
     {
         $this->validator->validate($command);
     }
 
+    /**
+     * register object
+     *
+     * @param $command
+     * @return void
+     */
     protected function register($command)
     {
         $this->sysFlowRepo->update($command);

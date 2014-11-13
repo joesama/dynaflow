@@ -11,7 +11,7 @@ use Javan\Dynaflow\Domain\Validators\SysFlowValidator;
 class CreateSysFlowHandler implements Handler
 {
     /**
-     * @var SysFlowService
+     * @var sysFlowRepo
      */
     private $sysFlowRepo;
 
@@ -42,11 +42,23 @@ class CreateSysFlowHandler implements Handler
         $this->register($command);
     }
 
+    /**
+     * validate object
+     *
+     * @param $command
+     * @return void
+     */
     protected function validate($command)
     {
         $this->validator->validate($command);
     }
 
+    /**
+     * register object
+     *
+     * @param $command
+     * @return void
+     */
     protected function register($command)
     {
         $this->sysFlowRepo->add($command);

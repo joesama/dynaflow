@@ -28,8 +28,8 @@ class SysFlowManagerValidator implements ValidatorInterface {
     }
 
     /**
-     * @param \Hex\CommandBus\CommandInterface $command
-     * @throws \Hex\Validation\ValidationException
+     * @param Javan\Dynaflow\Application\Command $command
+     * @throws Javan\Dynaflow\Validation\ValidationException
      */
     public function validate(Command $command)
     {
