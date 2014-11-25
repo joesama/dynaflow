@@ -45,6 +45,15 @@ Route::group(array('prefix' => 'flowmanager'), function () {
 	Route::get('delete/{id}', 'SysFlowManagerController@delete');
 });
 
+Route::group(array('prefix' => 'sysapplication'), function () {
+	Route::get('/', 'SysApplicationController@index');
+	Route::get('create', 'SysApplicationController@create');
+	Route::post('store', 'SysApplicationController@store');
+	Route::get('edit/{id}', 'SysApplicationController@edit');
+	Route::post('update/{id}', 'SysApplicationController@update');
+	Route::get('delete/{id}', 'SysApplicationController@destroy');
+});
+
 Route::group(array('prefix' => 'test'), function () {
 	Route::get('/index', 'TestController@index');
 	Route::get('/piring', 'TestController@piring');

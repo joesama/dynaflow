@@ -12,7 +12,8 @@
         "symfony/yaml": "2.*",
         "illuminate/support": "4.1.*",
         "orchestra/foundation": "2.2.",
-        "orchestra/control": "2.2.*"
+        "orchestra/control": "2.2.*",
+        "kris/laravel-form-builder": "0.*"
     },
     "require-dev": {
         "codeception/codeception": "~2.0",
