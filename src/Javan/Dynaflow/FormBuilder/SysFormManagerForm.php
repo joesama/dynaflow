@@ -2,12 +2,17 @@
 
 use Kris\LaravelFormBuilder\Form;
 
-class SysApplicationForm extends Form
+class SysFormManagerForm extends Form
 {
     public function buildForm()
     {
         $this
-        	 ->add('Flow', 'choice', [
+        	->add('Aplication', 'choice', [
+                'choices' => [1 => 'application'],
+                'empty_value' => '',
+                'multiple' => false
+            ])
+            ->add('Flow Step', 'choice', [
                 'choices' => [1 => 'Makan'],
                 'empty_value' => '',
                 'multiple' => false
