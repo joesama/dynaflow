@@ -1,12 +1,9 @@
 <?php namespace Javan\Dynaflow\Application\Identity\SysFlow;
 
-use Javan\Dynaflow\Gettable;
 use Javan\Dynaflow\Application\Command;
 
 class CreateSysFlowCommand implements Command
 {
-    use Gettable;
-
     protected $data;
 
     /**
