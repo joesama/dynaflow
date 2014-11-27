@@ -1,12 +1,9 @@
 <?php namespace Javan\Dynaflow\Application\Identity\SysFlowStep;
 
-use Javan\Dynaflow\Gettable;
 use Javan\Dynaflow\Application\Command;
 
 class UpdateSysFlowStepCommand implements Command
 {
-    use Gettable;
-
     protected $data;
 
     /**
