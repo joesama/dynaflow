@@ -78,7 +78,7 @@ class SysFlowController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$sysflow = \Javan\Dynaflow\Domain\Model\Identity\SysFlow::find($id);
+		$sysflow = \Javan\Dynaflow\Domain\Model\SysFlow::find($id);
 
         return View::make('dynaflow::sysflow.form', compact('sysflow'));
 	}

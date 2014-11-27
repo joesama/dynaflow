@@ -1,4 +1,4 @@
-<?php namespace Javan\Dynaflow\Domain\Model\Identity;
+<?php namespace Javan\Dynaflow\Domain\Model;
 
 use Illuminate\Database\Eloquent\Model;
 

@@ -1,6 +1,6 @@
 <?php namespace Javan\Dynaflow\Infrastructure\Repositories\SysFlowStep;
 
-use Javan\Dynaflow\Domain\Model\Identity\SysFlowStep;
+use Javan\Dynaflow\Domain\Model\SysFlowStep;
 
 interface SysFlowStepRepositoryInterface    
 {

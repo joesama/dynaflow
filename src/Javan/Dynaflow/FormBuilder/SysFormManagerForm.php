@@ -1,14 +1,19 @@
 <?php namespace Javan\Dynaflow\FormBuilder;
 
 use Kris\LaravelFormBuilder\Form;
+use Javan\Dynaflow\Domain\Model\SysApplication;
 
 class SysFormManagerForm extends Form
 {
     public function buildForm()
     {
+        //select data application
+        $sysapplication = array('' => '');
+        $sysapplication = $sysapplication + SysApplication::lists('name', 'id');
+
         $this
         	->add('Aplication', 'choice', [
-                'choices' => [1 => 'application'],
+                'choices' => $sysapplication,
                 'empty_value' => '',
                 'multiple' => false
             ])

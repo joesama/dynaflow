@@ -11,7 +11,7 @@ if (isset($sysflowstep)) {
 
 <?php
     $sysflow = array('' => '');
-    $sysflow = $sysflow + \Javan\Dynaflow\Domain\Model\Identity\SysFlow::lists('name', 'id');
+    $sysflow = $sysflow + \Javan\Dynaflow\Domain\Model\SysFlow::lists('name', 'id');
 ?>
 
 @section('content')
