@@ -113,5 +113,17 @@ class DynaFlowSeeder extends Seeder
 		);
 		DB::table('sys_flow_manager')->insert( $sys_flow_manager );
 
+		//application
+		$sys_application = array(
+			array(
+				'id'		 => 1,
+				'flow_id'	 => 1,
+				'name'		 => 'Rumah Makan',
+				'created_at' => new DateTime,
+				'updated_at' => new DateTime,
+			)
+		);
+		DB::table('sys_application')->insert( $sys_application );
+
 	}
 }
