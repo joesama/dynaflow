@@ -8,8 +8,22 @@ use Illuminate\Database\Eloquent\Model;
  */
 class SysFormManager extends Model
 {
-	use \Javan\Dynaflow\Application\Events\Eventable;
+    protected $table = 'sys_form_manager';
 
-    protected $table = 'sys_form_manager'; 
+    public function application(){
+    	return $this->belongsTo('Javan\Dynaflow\Domain\Model\SysApplication', 'application_id');
+    }
+
+    public function flowStep(){
+        return $this->belongsTo('Javan\Dynaflow\Domain\Model\SysFlowStep', 'step_id');
+    }
     
+    public static function type(){
+    	return array(
+    		1 => 'Text Box',
+    		2 => 'Dropdown',
+    		3 => 'Radio Button',
+    		4 => 'Text Area'
+    		);
+    }
 }

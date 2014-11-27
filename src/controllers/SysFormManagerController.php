@@ -1,6 +1,14 @@
 <?php
+use Javan\Dynaflow\Application\CommandBus;
+use Javan\Dynaflow\Infrastructure\Repositories\SysFormManager\SysFormManagerRepositoryInterface;
+use Javan\Dynaflow\Validation\ValidationException;
 
 class SysFormManagerController extends \BaseController {
+
+	public function __construct(CommandBus $commandBus, SysFormManagerRepositoryInterface $sysFormManagerRepo){
+		$this->commandBus = $commandBus;	
+		$this->sysFormManagerRepo = $sysFormManagerRepo;
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -9,7 +17,9 @@ class SysFormManagerController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$formmanager = $this->sysFormManagerRepo->paginate(10);
+
+		return View::make('dynaflow::formmanager.index', compact('formmanager'));
 	}
 
 
@@ -36,7 +46,19 @@ class SysFormManagerController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$command = new CreateSysFormManagerCommand(Input::all());
+
+        try {
+            $result = $this->commandBus->execute($command);	
+        } catch(ValidationException $e)
+        {
+            return Redirect::to('/formmanager/create?modul=1')->withErrors( $e->getErrors() );
+        } catch(\DomainException $e)
+        {
+            return Redirect::to('formmanager/create?modul=1')->withErrors( $e->getErrors() );
+        }
+
+        return Redirect::to('formmanager?modul=1')->with(['message' => 'success!']);
 	}
 
 
@@ -89,7 +111,13 @@ class SysFormManagerController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		//delete
+       	$sysformmanager = $this->sysFormManagerRepo->delete($id);
+
+        // redirect
+        Session::flash('message', 'Berhasil menghapus Sys Flow!');
+
+        return Redirect::to('formmanager?modul=1');
 	}
 
 

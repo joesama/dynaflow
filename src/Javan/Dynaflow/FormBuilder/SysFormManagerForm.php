@@ -2,44 +2,60 @@
 
 use Kris\LaravelFormBuilder\Form;
 use Javan\Dynaflow\Domain\Model\SysApplication;
+use Javan\Dynaflow\Domain\Model\SysFlowStep;
+use Javan\Dynaflow\Domain\Model\SysFormManager;
 
 class SysFormManagerForm extends Form
 {
     public function buildForm()
     {
-        //select data application
+
+        //Application selected
         $sysapplication = array('' => '');
         $sysapplication = $sysapplication + SysApplication::lists('name', 'id');
 
+        //Flow Step selected
+        $sysflowstep = array('' => '');
+        $sysflowstep = $sysflowstep + SysFlowStep::lists('name', 'id');
+
         $this
-        	->add('Aplication', 'choice', [
+        	->add('application_id', 'choice', [
+                'label' => 'Application',
                 'choices' => $sysapplication,
                 'empty_value' => '',
                 'multiple' => false
             ])
             
-            ->add('Flow Step', 'choice', [
-                'choices' => [1 => 'Makan'],
+            ->add('step_id', 'select', [
+                'label' => 'Flow Step',
+                'choices' => $sysflowstep,
                 'empty_value' => '',
                 'multiple' => false
             ])
         	
-            ->add('Title', 'text')
+            ->add('title', 'text', [
+                'label'=>'Title'
+            ])
             
-            ->add('Type', 'choice', [
-                'choices' => [1 => 'Makan'],
+            ->add('type', 'choice', [
+                'label' => 'Type',
+                'choices' => SysFormManager::type(),
                 'empty_value' => '',
                 'multiple' => false
             ])
         	
-            ->add('Name', 'text')
+            ->add('name', 'text',[
+                'label' => 'Name'
+            ])
 
-            ->add('Value', 'text')
+            ->add('value', 'text', [
+                'label'=>'Value'
+            ])
 
             // ->add('gender', 'choice', [
             //     'choices' => [1 => 'Yes', 2 => 'Female'],
             //     'selected' => 1,
-            //     'expanded' => true
+            //     'restore_exception_handler(oid)d' => true
             // ])
 
         	->add('save', 'submit', [
