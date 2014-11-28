@@ -6,6 +6,15 @@
     <a href="{{ URL::to('sysflow/create?modul=1')}}" class="btn btn-primary btn-lg btn-sm pull-right" role="button">Add</a>
 </h2>
 
+<?php 
+
+if (Auth::isAny(['Administrator', 'editor'])) {
+    echo "Is an admin or editor";
+}else{
+    echo "bukan";
+}
+?>
+
 <table class="table table-bordered table-condensed">
     <thead>
         <tr>

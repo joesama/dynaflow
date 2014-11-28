@@ -20,6 +20,7 @@ class DynaflowServiceProvider extends ServiceProvider {
 	{
 		$this->package('javan/dynaflow', 'dynaflow');
 		include __DIR__.'/../../routes.php';
+		include __DIR__.'/../../filters.php';
 	}
 
 	/**
