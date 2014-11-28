@@ -1,4 +1,4 @@
-<?php namespace Javan\Dynaflow\Application\Identity\SysFlowApplication;
+<?php namespace Javan\Dynaflow\Application\Identity\SysApplication;
 
 use Javan\Dynaflow\Application\Command;
 
@@ -10,7 +10,7 @@ class CreateSysApplicationCommand implements Command
     protected $data;
 
     /**
-     * Create a new CreateSysFlowCommand
+     * Create a new CreateSysApplicationCommand
      *
      * @param object $data
      * @return void

@@ -11,5 +11,10 @@ class SysApplication extends Model
 	use \Javan\Dynaflow\Application\Events\Eventable;
 
     protected $table = 'sys_application'; 
+
+    public function flow()
+    {
+        return $this->belongsTo('Javan\Dynaflow\Domain\Model\SysFlow', 'flow_id');
+    }
     
 }

@@ -1,8 +1,14 @@
 <?php
-
-use Illuminate\Routing\Controller;
+use Javan\Dynaflow\Application\CommandBus;
+use Javan\Dynaflow\Infrastructure\Repositories\SysApplication\SysApplicationRepositoryInterface;
+use Javan\Dynaflow\Validation\ValidationException;
 
 class SysApplicationController extends \BaseController {
+
+	public function __construct(CommandBus $commandBus, SysApplicationRepositoryInterface $sysApplicationRepo){
+		$this->commandBus = $commandBus;	
+		$this->sysApplicationRepo = $sysApplicationRepo;
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -11,7 +17,9 @@ class SysApplicationController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$sysapplication = $this->sysApplicationRepo->paginate(10);
+
+		return View::make('dynaflow::sysapplication.index', compact('sysapplication'));
 	}
 
 
@@ -25,7 +33,7 @@ class SysApplicationController extends \BaseController {
 
 		$form = \FormBuilder::create('Javan\Dynaflow\FormBuilder\SysApplicationForm', [
           	'method' => 'POST',
-          	'url' => 'sysaplication/store'
+          	'url' => 'sysapplication/store'
       	]);
 
 		return View::make('dynaflow::sysapplication.form', compact('form'));
@@ -39,7 +47,19 @@ class SysApplicationController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$command = new CreateSysApplicationCommand(Input::all());
+
+        try {
+            $result = $this->commandBus->execute($command);
+        } catch(ValidationException $e)
+        {
+            return Redirect::to('/sysapplication/create?modul=3')->withErrors( $e->getErrors() );
+        } catch(\DomainException $e)
+        {
+            return Redirect::to('sysapplication/create?modul=3')->withErrors( $e->getErrors() );
+        }
+
+        return Redirect::to('sysapplication?modul=3')->with(['message' => 'success!']);
 	}
 
 
@@ -92,7 +112,13 @@ class SysApplicationController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		//delete
+       	$this->sysApplicationRepo->delete($id);
+
+        // redirect
+        Session::flash('message', 'Berhasil menghapus Application!');
+
+        return Redirect::to('sysapplication?modul=3');
 	}
 
 

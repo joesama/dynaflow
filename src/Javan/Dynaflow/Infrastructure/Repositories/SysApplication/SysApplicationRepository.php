@@ -1,6 +1,6 @@
 <?php namespace Javan\Dynaflow\Infrastructure\Repositories\SysApplication;
 
-use Javan\Dynaflow\Domain\Model\Identity\SysApplication;
+use Javan\Dynaflow\Domain\Model\SysApplication;
 
 class SysApplicationRepository implements SysApplicationRepositoryInterface
 {
