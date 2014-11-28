@@ -84,7 +84,7 @@ Route::filter('guest', function()
 
 Route::filter('Administrator', function()
 {
-    if (Auth::isAny(['Administrator'])) 
+    if (Auth::isAny(['Administrator', 'Flow'])) 
     {
        
     }else{
