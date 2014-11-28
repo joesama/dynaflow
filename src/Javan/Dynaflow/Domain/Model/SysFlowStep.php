@@ -1,4 +1,4 @@
-<?php namespace Javan\Dynaflow\Domain\Model\Identity;
+<?php namespace Javan\Dynaflow\Domain\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,6 +12,6 @@ class SysFlowStep extends Model
 
     public function flow()
     {
-        return $this->belongsTo('Javan\Dynaflow\Domain\Model\Identity\SysFlow', 'sys_flow_id');
+        return $this->belongsTo('Javan\Dynaflow\Domain\Model\SysFlow', 'sys_flow_id');
     }
 }

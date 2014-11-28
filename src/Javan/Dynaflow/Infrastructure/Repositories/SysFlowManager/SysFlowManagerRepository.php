@@ -1,6 +1,6 @@
 <?php namespace Javan\Dynaflow\Infrastructure\Repositories\SysFlowManager;
 
-use Javan\Dynaflow\Domain\Model\Identity\SysFlowManager;
+use Javan\Dynaflow\Domain\Model\SysFlowManager;
 
 class SysFlowManagerRepository implements SysFlowManagerRepositoryInterface
 {

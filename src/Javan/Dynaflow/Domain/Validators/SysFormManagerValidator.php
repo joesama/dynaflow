@@ -5,7 +5,7 @@ use Javan\Dynaflow\Validation\ValidationException;
 use Javan\Dynaflow\Validation\ValidatorInterface;
 use Javan\Dynaflow\Application\Command;
 
-class SysFormManagerManagerValidator implements ValidatorInterface {
+class SysFormManagerValidator implements ValidatorInterface {
 
     /**
      * @var \Illuminate\Validation\Factory
@@ -16,10 +16,13 @@ class SysFormManagerManagerValidator implements ValidatorInterface {
      * @var array
      */
     protected $rules = [
-        'flow_id' => 'required',
+        'application_id' => 'required',
         'step_id' => 'required',
-        'step_next_id' => 'required',
-        'trigger' => 'required'
+        'title' => 'required',
+        'type' => 'required',
+        'name' => 'required',
+        'value' => 'required',
+        //'require' => 'required'
     ];
 
     public function __construct(Factory $validator)
@@ -34,10 +37,13 @@ class SysFormManagerManagerValidator implements ValidatorInterface {
     public function validate(Command $command)
     {
         $validator = $this->validator->make([
-            'flow_id' => $command->flow_id,
+            'application_id' => $command->application_id,
             'step_id' => $command->step_id,
-            'step_next_id' => $command->step_next_id,
-            'trigger' => $command->trigger,
+            'title' => $command->title,
+            'type' => $command->type,
+            'name' => $command->name,
+            'value' => $command->value,
+            //'require' => $command->require,
         ], $this->rules);
 
         if( ! $validator->passes() )

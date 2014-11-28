@@ -20,7 +20,7 @@ class SysFlowManagerController extends \BaseController {
 	public function index($flow_id)
 	{
 		$sysflowManager = $this->sysFlowManagerRepo->all($flow_id);
-		$sysflow = \Javan\Dynaflow\Domain\Model\Identity\SysFlow::find($flow_id);
+		$sysflow = \Javan\Dynaflow\Domain\Model\SysFlow::find($flow_id);
 		$sysflow = $sysflow->name;
 		return View::make('dynaflow::flowManager.index', compact('sysflowManager', 'flow_id', 'sysflow'));
 	}

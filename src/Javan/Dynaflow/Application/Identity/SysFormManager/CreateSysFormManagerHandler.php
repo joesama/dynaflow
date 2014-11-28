@@ -1,31 +1,31 @@
-<?php namespace Javan\Dynaflow\Application\Identity\SysFlow;
+<?php namespace Javan\Dynaflow\Application\Identity\SysFormManager;
 
 use Javan\Dynaflow\Application\Command;
 use Javan\Dynaflow\Application\Events\Dispatcher;
 use Javan\Dynaflow\Application\Handler;
-use Javan\Dynaflow\Infrastructure\Repositories\SysFlow\SysFlowRepositoryInterface;
-use Javan\Dynaflow\Domain\Validators\SysFlowValidator;
+use Javan\Dynaflow\Infrastructure\Repositories\SysFormManager\SysFormManagerRepositoryInterface;
+use Javan\Dynaflow\Domain\Validators\SysFormManagerValidator;
 
 
-class CreateSysFlowHandler implements Handler
+class CreateSysFormManagerHandler implements Handler
 {
     /**
-     * @var sysFlowRepo
+     * @var sysFormManagerRepo
      */
-    private $sysFlowRepo;
+    private $sysFormManagerRepo;
 
     /**
-     * Create a new CreateSysFlowHandler
+     * Create a new CreateSysFormManagerHandler
      *
-     * @param SysFlowValidator $validator
-     * @param SysFlowRepositoryInterface $sysFlowRepo
+     * @param SysFormManagerValidator $validator
+     * @param SysFormManagerRepositoryInterface $sysFormManagerRepo
      * @param Dispatcher $dispatcher
      * @return void
      */
-    public function __construct(SysFlowValidator $validator, SysFlowRepositoryInterface $sysFlowRepo, Dispatcher $dispatcher)
+    public function __construct(SysFormManagerValidator $validator, SysFormManagerRepositoryInterface $sysFormManagerRepo, Dispatcher $dispatcher)
     {
         $this->validator = $validator;
-        $this->sysFlowRepo = $sysFlowRepo;
+        $this->sysFormManagerRepo = $sysFormManagerRepo;
         $this->dispatcher = $dispatcher;
     }
 
@@ -60,6 +60,6 @@ class CreateSysFlowHandler implements Handler
      */
     protected function register($command)
     {
-        $this->sysFlowRepo->add($command);
+        $this->sysFormManagerRepo->add($command);
     }
 }
