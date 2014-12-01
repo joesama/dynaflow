@@ -112,8 +112,8 @@ body {
                 <div class="list-group">
                   <a href="{{ URL::to('sysflow?modul=1')}}" class="list-group-item <?php if(isset($_GET['modul'])){ if($_GET['modul'] == 1){ ?>active <?php } } ?>">Flow</a>
                   <a href="{{ URL::to('sysflowstep?modul=2')}}" class="list-group-item <?php if(isset($_GET['modul'])){ if($_GET['modul'] == 2){ ?>active <?php } } ?>">Step</a>
-                  <a href="{{ URL::to('sysflowstep?modul=3')}}" class="list-group-item <?php if(isset($_GET['modul'])){ if($_GET['modul'] == 3){ ?>active <?php } } ?>">Application</a>
-                  <a href="{{ URL::to('sysflowstep?modul=4')}}" class="list-group-item <?php if(isset($_GET['modul'])){ if($_GET['modul'] == 4){ ?>active <?php } } ?>">Form Manager</a>
+                  <a href="{{ URL::to('sysapplication?modul=3')}}" class="list-group-item <?php if(isset($_GET['modul'])){ if($_GET['modul'] == 3){ ?>active <?php } } ?>">Application</a>
+                  <a href="{{ URL::to('formmanager?modul=4')}}" class="list-group-item <?php if(isset($_GET['modul'])){ if($_GET['modul'] == 4){ ?>active <?php } } ?>">Form Manager</a>
                 </div>
             </td><td width="5%">
             </td><td width="75%">
