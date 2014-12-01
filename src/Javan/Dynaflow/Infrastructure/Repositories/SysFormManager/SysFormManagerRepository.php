@@ -26,11 +26,6 @@ class SysFormManagerRepository implements SysFormManagerRepositoryInterface
         $data = new SysFormManager;
         $data->application_id = $formManager->application_id;
         $data->step_id = $formManager->step_id;
-        $data->title = $formManager->title;
-        $data->type = $formManager->type;
-        $data->name = $formManager->name;
-        $data->value = $formManager->value;
-        //$data->require = $formManager->require;
         $data->save();
     }
 
@@ -65,9 +60,8 @@ class SysFormManagerRepository implements SysFormManagerRepositoryInterface
     public function update($formManager)
     {
         $data = SysFormManager::find($FormManager->id);
-        $data->sys_flow_id = $FormManager->sys_flow_id;
-        $data->name = $FormManager->name;
-        $data->action = $FormManager->action;
+        $data->application_id = $formManager->application_id;
+        $data->step_id = $formManager->step_id;
         $data->save();
     } 
 
