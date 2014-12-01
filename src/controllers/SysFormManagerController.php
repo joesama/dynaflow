@@ -111,7 +111,8 @@ class SysFormManagerController extends \BaseController {
 	public function destroy($id)
 	{
 		//delete
-       	$sysformmanager = $this->sysFormManagerRepo->delete($id);
+       	$sysformmanager = SysFormManager::find($id);
+        $sysformmanager->delete();
 
         // redirect
         Session::flash('message', 'Berhasil menghapus Sys Flow!');

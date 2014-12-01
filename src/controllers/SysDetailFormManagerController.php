@@ -43,7 +43,7 @@ class SysDetailFormManagerController extends \BaseController {
 	 */
 	public function store($form_manager_id)
 	{
-		$command = new CreateSysDetailFormManagerCommand(Input::all());
+		$command = new CreateSysDetailFormManagerCommand(Input::all() + array('form_manager_id' => $form_manager_id));
 
         try {
             $result = $this->commandBus->execute($command);	
@@ -103,7 +103,14 @@ class SysDetailFormManagerController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		//delete
+       	$detailformmanager = SysDetailFormManager::find($id);
+       	$detailformmanager->delete();
+
+        // redirect
+        Session::flash('message', 'Berhasil menghapus Detail Form Manager!');
+
+        return Redirect::to('detailformmanager/index/'.$detailformmanager->form_manager_id.'?modul=1');
 	}
 
 

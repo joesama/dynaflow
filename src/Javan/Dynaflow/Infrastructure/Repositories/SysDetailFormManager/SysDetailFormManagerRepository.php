@@ -24,8 +24,12 @@ class SysDetailFormManagerRepository implements SysDetailFormManagerRepositoryIn
     public function add($detailFormManager)
     {
         $data = new SysDetailFormManager;
-        $data->application_id = $detailFormManager->application_id;
-        $data->step_id = $detailFormManager->step_id;
+        $data->form_manager_id = $detailFormManager->form_manager_id;
+        $data->title = $detailFormManager->title;
+        $data->type = $detailFormManager->type;
+        $data->name = $detailFormManager->name;
+        $data->value = $detailFormManager->value;
+       //$data->require = $detailFormManager->require;
         $data->save();
     }
 
@@ -42,17 +46,5 @@ class SysDetailFormManagerRepository implements SysDetailFormManagerRepositoryIn
         $data->step_id = $formManager->step_id;
         $data->save();
     } 
-
-    /**
-     * All Data 
-     *
-     * @param $id
-     * @return boolean
-     */
-    public function delete($id)
-    {
-        $FormManager = SysFormManager::find($id);
-        $FormManager->delete();
-    }    
-
+    
 }

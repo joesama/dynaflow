@@ -5,8 +5,6 @@ use Javan\Dynaflow\Domain\Model\SysFormManager;
 interface SysFormManagerRepositoryInterface    
 {
 
-    public function all();
-
     /**
      * Add a new SysFormManager
      *
@@ -23,11 +21,4 @@ interface SysFormManagerRepositoryInterface
      */
     public function update($sysFormManager);
 
-    /**
-     * Delete SysFormManager
-     *
-     * @param $sysFormManager
-     * @return void
-     */
-    public function delete($sysFormManager);
 }

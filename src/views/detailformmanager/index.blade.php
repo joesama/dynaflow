@@ -4,6 +4,7 @@
 @section('content')
 
 <h2>Detail Form Manager
+    <a href="{{ URL::to('detailformmanager/create/'.$form_manager_id.'?modul=2')}}" class="btn btn-primary btn-lg btn-sm  pull-right" style="margin-left:10px" role="button">Preview</a>
     <a href="{{ URL::to('detailformmanager/create/'.$form_manager_id.'?modul=2')}}" class="btn btn-primary btn-lg btn-sm  pull-right" role="button">Add</a>
 </h2>
 
@@ -23,7 +24,7 @@
         @foreach($detailformmanager as $key => $value)
             <tr>
                 <td>{{ $value->title }}</td>
-                <td>{{ $value->type }}</td>
+                <td>{{ $value->getTypeLabel() }}</td>
                 <td>{{ $value->name }} </td>
                 <td>{{ $value->value }}</td>
                 <td>{{ $value->require }}</td>

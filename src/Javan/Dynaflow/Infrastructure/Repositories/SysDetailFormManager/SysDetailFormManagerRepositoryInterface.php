@@ -20,12 +20,4 @@ interface SysDetailFormManagerRepositoryInterface
      * @return void
      */
     public function update($sysDetailFormManager);
-
-    /**
-     * Delete SysDetailFormManager
-     *
-     * @param $sysDetailFormManager
-     * @return void
-     */
-    public function delete($sysDetailFormManager);
 }
