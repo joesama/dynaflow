@@ -11,52 +11,25 @@ class SysFormManagerForm extends Form
     {
 
         //Application selected
-        $sysapplication = array('' => '');
-        $sysapplication = $sysapplication + SysApplication::lists('name', 'id');
+        $sysapplication = SysApplication::lists('name', 'id');
 
         //Flow Step selected
-        $sysflowstep = array('' => '');
-        $sysflowstep = $sysflowstep + SysFlowStep::lists('name', 'id');
+        $sysflowstep = SysFlowStep::lists('name', 'id');
 
         $this
-        	->add('application_id', 'choice', [
+        	->add('application_id', 'select', [
                 'label' => 'Application',
                 'choices' => $sysapplication,
-                'empty_value' => '',
+                'empty_value' => ['' => ''],
                 'multiple' => false
             ])
             
             ->add('step_id', 'select', [
                 'label' => 'Flow Step',
                 'choices' => $sysflowstep,
-                'empty_value' => '',
+                'empty_value' => ['' => ''],
                 'multiple' => false
             ])
-        	
-            ->add('title', 'text', [
-                'label'=>'Title'
-            ])
-            
-            ->add('type', 'choice', [
-                'label' => 'Type',
-                'choices' => SysFormManager::type(),
-                'empty_value' => '',
-                'multiple' => false
-            ])
-        	
-            ->add('name', 'text',[
-                'label' => 'Name'
-            ])
-
-            ->add('value', 'text', [
-                'label'=>'Value'
-            ])
-
-            // ->add('gender', 'choice', [
-            //     'choices' => [1 => 'Yes', 2 => 'Female'],
-            //     'selected' => 1,
-            //     'restore_exception_handler(oid)d' => true
-            // ])
 
         	->add('save', 'submit', [
                 'attr' => ['class' => 'btn btn-primary']

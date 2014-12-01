@@ -18,12 +18,33 @@ class SysFormManager extends Model
         return $this->belongsTo('Javan\Dynaflow\Domain\Model\SysFlowStep', 'step_id');
     }
     
-    public static function type(){
+    public static function getType(){
     	return array(
     		1 => 'Text Box',
     		2 => 'Dropdown',
     		3 => 'Radio Button',
-    		4 => 'Text Area'
+    		4 => 'Text Area',
+            5 => 'Check Box'
     		);
+    }
+
+    public function getTypeLabel(){
+        switch ($this->type) {
+            case 1:
+                return 'Text Box';
+                break;
+            case 2:
+                return 'Dropdown';
+                break;
+            case 3:
+                return 'Radio Button';
+                break;
+            case 4:
+                return 'Text Area';
+                break;
+            case 5:
+                return 'Check Box';
+                break;
+        }
     }
 }

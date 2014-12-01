@@ -18,11 +18,6 @@ class SysFormManagerValidator implements ValidatorInterface {
     protected $rules = [
         'application_id' => 'required',
         'step_id' => 'required',
-        'title' => 'required',
-        'type' => 'required',
-        'name' => 'required',
-        'value' => 'required',
-        //'require' => 'required'
     ];
 
     public function __construct(Factory $validator)
@@ -39,11 +34,6 @@ class SysFormManagerValidator implements ValidatorInterface {
         $validator = $this->validator->make([
             'application_id' => $command->application_id,
             'step_id' => $command->step_id,
-            'title' => $command->title,
-            'type' => $command->type,
-            'name' => $command->name,
-            'value' => $command->value,
-            //'require' => $command->require,
         ], $this->rules);
 
         if( ! $validator->passes() )
