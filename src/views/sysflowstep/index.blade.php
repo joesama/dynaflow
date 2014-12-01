@@ -6,6 +6,11 @@
 <h2>Step
     <a href="{{ URL::to('sysflowstep/create?modul=2')}}" class="btn btn-primary btn-lg btn-sm  pull-right" role="button">Add</a>
 </h2>
+{{ Form::open(array('url' => 'sysflowstep', 'method' => 'get', 'class' => 'form-horizontal')) }}
+<div class="form-group col-sm-3">
+{{ Form::text('search', null, array('class'=>'form-control','placeholder'=>'Search'))}}
+</div>
+{{ Form::close() }}
 
 <table class="table table-bordered table-condensed">
     <thead>
@@ -30,7 +35,7 @@
         @endforeach
     </tbody>
 </table>
-
-<div class="pages">{{ $sysflowstep->links(); }}</div>
+<?php $search = ''; if(isset($_GET['search'])){ $search = $_GET['search']; } ?>
+<div class="pages">{{ $sysflowstep->appends(array('search' => $search, 'modul' => '2'))->links(); }}</div>
 
 @stop

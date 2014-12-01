@@ -48,7 +48,9 @@ class SysFlowRepository implements SysFlowRepositoryInterface
     public function paginate($limit = 10)
     {
         $paginate = new SysFlow();
-        return $paginate->paginate($limit);;
+        $search = '';
+        if(isset($_GET['search'])){ $search = $_GET['search']; }
+        return $paginate->where('name', 'like', '%'.$search.'%')->paginate($limit);
     } 
 
     /**
