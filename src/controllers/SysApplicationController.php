@@ -17,7 +17,7 @@ class SysApplicationController extends \BaseController {
 	 */
 	public function index()
 	{
-		$sysapplication = $this->sysApplicationRepo->paginate(10);
+		$sysapplication = $this->sysApplicationRepo->paginate(3);
 
 		return View::make('dynaflow::sysapplication.index', compact('sysapplication'));
 	}

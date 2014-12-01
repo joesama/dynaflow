@@ -6,6 +6,12 @@
 <h2>Application
     <a href="{{ URL::to('sysapplication/create?modul=3')}}" class="btn btn-primary btn-lg btn-sm  pull-right" role="button">Add</a>
 </h2>
+{{ Form::open(array('url' => 'sysapplication', 'method' => 'get', 'class' => 'form-horizontal')) }}
+<div class="form-group col-sm-3">
+{{ Form::text('search', null, array('class'=>'form-control','placeholder'=>'Search'))}}
+</div>
+{{ Form::close() }}
+<br>
 
 <table class="table table-bordered table-condensed">
     <thead>
@@ -28,7 +34,7 @@
         @endforeach
     </tbody>
 </table>
-
-<div class="pages">{{ $sysapplication->links(); }}</div>
+<?php $search = ''; if(isset($_GET['search'])){ $search = $_GET['search']; } ?>
+<div class="pages">{{ $sysapplication->appends(array('search' => $search, 'modul' => '3'))->links(); }}</div>
 
 @stop

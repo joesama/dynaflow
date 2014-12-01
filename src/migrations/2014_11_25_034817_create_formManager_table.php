@@ -16,11 +16,6 @@ class CreateFormManagerTable extends Migration {
 			$table->increments('id');
 			$table->integer('application_id')->references('id')->on('sys_application');
 			$table->integer('step_id')->references('id')->on('sys_flow_step');
-			$table->string('title')->default(null);
-			$table->smallInteger('type')->default(null);
-			$table->string('name')->default(null);
-			$table->string('value')->default(null);
-			$table->boolean('require')->default(null);
 			$table->timestamps();
 		});
 	}
