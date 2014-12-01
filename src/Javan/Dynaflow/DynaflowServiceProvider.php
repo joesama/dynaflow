@@ -37,14 +37,11 @@ class DynaflowServiceProvider extends ServiceProvider {
         });
 
 	  	$this->app->bind('Javan\Dynaflow\Infrastructure\Repositories\SysFlow\SysFlowRepositoryInterface', 'Javan\Dynaflow\Infrastructure\Repositories\SysFlow\SysFlowRepository');
-
 	    $this->app->bind('Javan\Dynaflow\Infrastructure\Repositories\SysFlowStep\SysFlowStepRepositoryInterface', 'Javan\Dynaflow\Infrastructure\Repositories\SysFlowStep\SysFlowStepRepository');
-
 	  	$this->app->bind('Javan\Dynaflow\Infrastructure\Repositories\SysFlowManager\SysFlowManagerRepositoryInterface', 'Javan\Dynaflow\Infrastructure\Repositories\SysFlowManager\SysFlowManagerRepository');
-
 	  	$this->app->bind('Javan\Dynaflow\Infrastructure\Repositories\SysApplication\SysApplicationRepositoryInterface', 'Javan\Dynaflow\Infrastructure\Repositories\SysApplication\SysApplicationRepository');
-
 		$this->app->bind('Javan\Dynaflow\Infrastructure\Repositories\SysFormManager\SysFormManagerRepositoryInterface', 'Javan\Dynaflow\Infrastructure\Repositories\SysFormManager\SysFormManagerRepository');
+		$this->app->bind('Javan\Dynaflow\Infrastructure\Repositories\SysDetailFormManager\SysDetailFormManagerRepositoryInterface', 'Javan\Dynaflow\Infrastructure\Repositories\SysDetailFormManager\SysDetailFormManagerRepository');
 
 	  	$this->app->booting(function()
 		{
