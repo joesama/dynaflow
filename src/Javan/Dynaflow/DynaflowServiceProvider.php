@@ -54,6 +54,7 @@ class DynaflowServiceProvider extends ServiceProvider {
 		  	$loader->alias('UpdateSysApplicationCommand', 'Javan\Dynaflow\Application\Identity\SysApplication\UpdateSysApplicationCommand');
 		  	$loader->alias('CreateSysFlowManagerCommand', 'Javan\Dynaflow\Application\Identity\SysFlowManager\CreateSysFlowManagerCommand');
 		  	$loader->alias('CreateSysFormManagerCommand', 'Javan\Dynaflow\Application\Identity\SysFormManager\CreateSysFormManagerCommand');
+		  	$loader->alias('CreateSysDetailFormManagerCommand', 'Javan\Dynaflow\Application\Identity\SysDetailFormManager\CreateSysDetailFormManagerCommand');
 		});
 	}
 

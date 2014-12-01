@@ -32,28 +32,6 @@ class SysDetailFormManagerRepository implements SysDetailFormManagerRepositoryIn
     /**
      * All Data 
      *
-     * @return object
-     */
-    public function all()
-    {
-        return $this->model->all();
-    }
-
-    /**
-     * All Data with paginate
-     *
-     * @param $limit
-     * @return object
-     */
-    public function paginate($limit = 10)
-    {
-        $paginate = new SysDetailFormManager();
-        return $paginate->paginate($limit);;
-    }  
-
-    /**
-     * All Data 
-     *
      * @param $formManager
      * @return boolean
      */

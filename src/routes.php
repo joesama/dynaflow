@@ -68,7 +68,7 @@ Route::group(array('before' => 'Administrator'), function () {
 	Route::group(array('prefix' => 'detailformmanager'), function () {
 		Route::get('/index/{id}', 'SysDetailFormManagerController@index');
 		Route::get('create/{id}', 'SysDetailFormManagerController@create');
-		Route::post('store', 'SysDetailFormManagerController@store');
+		Route::post('store/{id}', 'SysDetailFormManagerController@store');
 		Route::get('edit/{id}', 'SysDetailFormManagerController@edit');
 		Route::post('update/{id}', 'SysDetailFormManagerController@update');
 		Route::get('delete/{id}', 'SysDetailFormManagerController@destroy');

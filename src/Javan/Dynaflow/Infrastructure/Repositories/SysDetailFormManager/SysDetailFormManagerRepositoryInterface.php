@@ -5,8 +5,6 @@ use Javan\Dynaflow\Domain\Model\SysDetailFormManager;
 interface SysDetailFormManagerRepositoryInterface    
 {
 
-    public function all();
-
     /**
      * Add a new SysDetailFormManager
      *

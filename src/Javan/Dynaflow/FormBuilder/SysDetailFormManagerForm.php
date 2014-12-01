@@ -12,10 +12,10 @@ class SysDetailFormManagerForm extends Form
                'label'=>'Title'
             ])
             
-            ->add('type', 'choice', [
+            ->add('type', 'select', [
                 'label' => 'Type',
                 'choices' => SysDetailFormManager::getType(),
-                'empty_value' => '',
+                'empty_value' => [''=>''],
                 'multiple' => false
             ])
            

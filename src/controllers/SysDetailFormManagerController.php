@@ -1,6 +1,11 @@
 <?php
+use Javan\Dynaflow\Application\CommandBus;
 use Javan\Dynaflow\Domain\Model\SysDetailFormManager;
+use Javan\Dynaflow\Validation\ValidationException;
 class SysDetailFormManagerController extends \BaseController {
+	public function __construct(CommandBus $commandBus){
+		$this->commandBus = $commandBus;
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -24,7 +29,7 @@ class SysDetailFormManagerController extends \BaseController {
 	{
 		$form = \FormBuilder::create('Javan\Dynaflow\FormBuilder\SysDetailFormManagerForm', [
           	'method' => 'POST',
-          	'url' => 'detailformmanager/store'
+          	'url' => 'detailformmanager/store/'.$form_manager_id
       	]);
 
       	return View::make('dynaflow::detailformmanager.form', compact('form'));
@@ -36,9 +41,21 @@ class SysDetailFormManagerController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store($form_manager_id)
 	{
-		//
+		$command = new CreateSysDetailFormManagerCommand(Input::all());
+
+        try {
+            $result = $this->commandBus->execute($command);	
+        } catch(ValidationException $e)
+        {
+            return Redirect::to('/detailformmanager/create/'.$form_manager_id.'?modul=1')->withErrors( $e->getErrors() );
+        } catch(\DomainException $e)
+        {
+            return Redirect::to('detailformmanager/create'.$form_manager_id.'?modul=1')->withErrors( $e->getErrors() );
+        }
+
+        return Redirect::to('detailformmanager/index/'.$form_manager_id.'?modul=1')->with(['message' => 'success!']);
 	}
 
 

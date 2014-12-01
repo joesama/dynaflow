@@ -1,13 +1,12 @@
 <?php
 use Javan\Dynaflow\Application\CommandBus;
-use Javan\Dynaflow\Infrastructure\Repositories\SysFormManager\SysFormManagerRepositoryInterface;
+use Javan\Dynaflow\Domain\Model\SysFormManager;
 use Javan\Dynaflow\Validation\ValidationException;
 
 class SysFormManagerController extends \BaseController {
 
-	public function __construct(CommandBus $commandBus, SysFormManagerRepositoryInterface $sysFormManagerRepo){
-		$this->commandBus = $commandBus;	
-		$this->sysFormManagerRepo = $sysFormManagerRepo;
+	public function __construct(CommandBus $commandBus){
+		$this->commandBus = $commandBus;
 	}
 
 	/**
@@ -17,7 +16,7 @@ class SysFormManagerController extends \BaseController {
 	 */
 	public function index()
 	{
-		$formmanager = $this->sysFormManagerRepo->paginate(10);
+		$formmanager = SysFormManager::paginate(10);
 
 		return View::make('dynaflow::formmanager.index', compact('formmanager'));
 	}
