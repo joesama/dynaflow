@@ -49,7 +49,9 @@ class SysFlowStepRepository implements SysFlowStepRepositoryInterface
     public function paginate($limit = 10)
     {
         $paginate = new SysFlowStep();
-        return $paginate->paginate($limit);;
+        $search = '';
+        if(isset($_GET['search'])){ $search = $_GET['search']; }
+        return $paginate->where('name', 'like', '%'.$search.'%')->orWhere('action', 'like', '%'.$search.'%')->paginate($limit);;
     }  
 
     /**

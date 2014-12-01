@@ -11,7 +11,6 @@
 {{ Form::text('search', null, array('class'=>'form-control','placeholder'=>'Search'))}}
 </div>
 {{ Form::close() }}
-<br>
 
 <table class="table table-bordered table-condensed">
     <thead>
