@@ -83,12 +83,13 @@ class SysApplicationController extends \BaseController {
 	 */
 	public function edit($id)
 	{
+		$SysApplication = \Javan\Dynaflow\Domain\Model\SysApplication::find($id);
 		$form = \FormBuilder::create('Javan\Dynaflow\FormBuilder\SysApplicationForm', [
           	'method' => 'POST',
-          	'url' => 'sysaplication/store'
+          	'url' => 'sysapplication/update/'.$id,
+          	'model' => $SysApplication
       	]);
-
-		return View::make('dynaflow::sysapplication.form', compact('form'));
+		return View::make('dynaflow::sysapplication.form', compact('form', 'SysApplication'));
 	}
 
 
@@ -100,7 +101,19 @@ class SysApplicationController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$command = new UpdateSysApplicationCommand(Input::all() + array('id'=>$id));
+
+        try {
+            $result = $this->commandBus->execute($command);	
+        } catch(ValidationException $e)
+        {
+            return Redirect::to('/sysapplication/edit/'.$id.'?modul=3')->withErrors( $e->getErrors() );
+        } catch(\DomainException $e)
+        {
+            return Redirect::to('sysapplication/edit/'.$id.'?modul=3')->withErrors( $e->getErrors() );
+        }
+
+        return Redirect::to('sysapplication?modul=3')->with(['message' => 'success!']);
 	}
 
 
