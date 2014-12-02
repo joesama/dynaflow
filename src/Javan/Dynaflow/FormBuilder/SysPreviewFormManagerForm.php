@@ -24,7 +24,7 @@ class SysPreviewFormManagerForm extends Form
                     break;
                 case 2:
                     //dropdown
-                    $this->add('type', 'select', [
+                    $this->add($data->name, 'select', [
                         'label' => $data->title,
                         'choices' => $value,
                         'empty_value' => [''=>''],
@@ -33,8 +33,8 @@ class SysPreviewFormManagerForm extends Form
                     break;
                 case 3:
                     //Radio button
-                    $this->add('gender', 'choice', [
-                        'label'=> 'Gender',
+                    $this->add($data->name, 'choice', [
+                        'label'=> $data->title,
                         'choices' => $value,
                         'selected' => 'm',
                         'expanded' => true
@@ -42,20 +42,20 @@ class SysPreviewFormManagerForm extends Form
                     break;
                 case 4:
                     //text area
-                    $this->add('lyrics', 'textarea', [
+                    $this->add($data->name, 'textarea', [
                         'label' => $data->title
                     ]);
                     break;
                 case 5:
                     //check box
-                    $this->add('languages', 'choice', [
+                    $this->add($data->name, 'choice', [
+                        'label' => $data->title,
                         'choices' => $value,
                         'selected' => ['en', 'de'],
                         'expanded' => true,
                         'multiple' => true
                     ]);
-                    break;
-                    
+                    break;     
             }
         }
     }

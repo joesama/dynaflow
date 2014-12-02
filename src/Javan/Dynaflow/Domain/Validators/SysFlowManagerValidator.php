@@ -5,7 +5,7 @@ use Javan\Dynaflow\Validation\ValidationException;
 use Javan\Dynaflow\Validation\ValidatorInterface;
 use Javan\Dynaflow\Application\Command;
 
-class SysFormManagerManagerValidator implements ValidatorInterface {
+class SysFlowManagerValidator implements ValidatorInterface {
 
     /**
      * @var \Illuminate\Validation\Factory
