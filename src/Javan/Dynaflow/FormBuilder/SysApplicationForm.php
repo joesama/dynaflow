@@ -16,7 +16,7 @@ class SysApplicationForm extends Form
         $this
         	 ->add('flow_id', 'select', [
                 'choices' => $sysflow,
-                'selected' => $this->getData('flow_id'),
+                'selected' => $this->model->flow_id,
                 'label' => 'Flow',
                 'multiple' => false
             ])

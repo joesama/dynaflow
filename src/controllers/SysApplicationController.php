@@ -87,8 +87,7 @@ class SysApplicationController extends \BaseController {
 		$form = \FormBuilder::create('Javan\Dynaflow\FormBuilder\SysApplicationForm', [
           	'method' => 'POST',
           	'url' => 'sysapplication/update/'.$id,
-          	'model' => $SysApplication,
-          	'data' => [ 'flow_id' => $SysApplication->flow_id ]
+          	'model' => $SysApplication
       	]);
 		return View::make('dynaflow::sysapplication.form', compact('form', 'SysApplication'));
 	}
