@@ -4,7 +4,7 @@
 @section('content')
 
 <h2>Detail Form Manager
-    <a href="{{ URL::to('detailformmanager/create/'.$form_manager_id.'?modul=2')}}" class="btn btn-primary btn-lg btn-sm  pull-right" style="margin-left:10px" role="button">Preview</a>
+    <a href="{{ URL::to('detailformmanager/preview/'.$form_manager_id.'?modul=2')}}" class="btn btn-primary btn-lg btn-sm  pull-right" style="margin-left:10px" role="button">Preview</a>
     <a href="{{ URL::to('detailformmanager/create/'.$form_manager_id.'?modul=2')}}" class="btn btn-primary btn-lg btn-sm  pull-right" role="button">Add</a>
 </h2>
 

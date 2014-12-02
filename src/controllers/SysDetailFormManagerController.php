@@ -19,6 +19,22 @@ class SysDetailFormManagerController extends \BaseController {
 		return View::make('dynaflow::detailformmanager.index', compact('form_manager_id', 'detailformmanager'));
 	}
 
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return Response
+	 */
+
+	 public function preview($form_manager_id){
+
+	 	$form = \FormBuilder::create('Javan\Dynaflow\FormBuilder\SysPreviewFormManagerForm', [
+	 		'method' => 'POST',
+	 		'url' => 'sdad',
+	 		'data' => ['form_manager_id' => $form_manager_id]
+	 	]);
+
+	 	return View::make('dynaflow::detailformmanager.form', compact('form'));
+	 }	
 
 	/**
 	 * Show the form for creating a new resource.

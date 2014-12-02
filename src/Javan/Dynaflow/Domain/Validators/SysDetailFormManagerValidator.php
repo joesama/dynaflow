@@ -19,7 +19,7 @@ class SysDetailFormManagerValidator implements ValidatorInterface {
         'title' => 'required',
         'type' => 'required',
         'name' => 'required',
-        'value' => 'required',
+        //'value' => 'required',
         //'require' => 'required',
     ];
 
@@ -38,7 +38,7 @@ class SysDetailFormManagerValidator implements ValidatorInterface {
             'title' => $command->title,
             'type' => $command->type,
             'name' => $command->name,
-            'value' => $command->value,
+            //'value' => $command->value,
             //'require' => $command->require,
         ], $this->rules);
 
