@@ -20,6 +20,7 @@ class SysFormManagerForm extends Form
                 'label' => 'Application',
                 'choices' => $sysapplication,
                 'empty_value' => ['' => ''],
+                'selected' => $this->model->application_id,
                 'multiple' => false
             ])
             
@@ -27,6 +28,7 @@ class SysFormManagerForm extends Form
                 'label' => 'Flow Step',
                 'choices' => $sysflowstep,
                 'empty_value' => ['' => ''],
+                'selected' => $this->model->step_id,
                 'multiple' => false
             ])
 
