@@ -26,7 +26,7 @@ if (isset($sysflowstep)) {
     <div class="form-group {{ $errors->first('sys_flow_id', 'has-error') }}">
         <label class="col-sm-2 control-label">Sys Flow</label>
         <div class="col-sm-10">
-            {{ Form::select('sys_flow_id', $sysflow, '', array('class'=>'form-control','id'=>'user_id')) }}
+            {{ Form::select('sys_flow_id', $sysflow, null, array('class'=>'form-control')) }}
             <span class="help-block"> {{ $errors->first('sys_flow_id') }} </span>
         </div>
     </div>

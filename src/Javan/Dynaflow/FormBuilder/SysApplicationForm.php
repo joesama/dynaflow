@@ -12,10 +12,11 @@ class SysApplicationForm extends Form
         //Application selected
         $sysflow = array('' => '');
         $sysflow = $sysflow + SysFlow::lists('name', 'id');
+        
         $this
-        	 ->add('flow_id', 'choice', [
+        	 ->add('flow_id', 'select', [
                 'choices' => $sysflow,
-                'empty_value' => '',
+                'selected' => $this->getData('flow_id'),
                 'label' => 'Flow',
                 'multiple' => false
             ])
