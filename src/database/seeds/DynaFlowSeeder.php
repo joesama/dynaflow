@@ -7,6 +7,7 @@ class DynaFlowSeeder extends Seeder
 		DB::table('sys_flow_manager')->delete();
 		DB::table('sys_flow_step')->delete();
 		DB::table('sys_flow')->delete();
+		DB::table('sys_application')->delete();
 
 		//flow
 		$sys_flow = array(
