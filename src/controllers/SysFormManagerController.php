@@ -86,6 +86,7 @@ class SysFormManagerController extends \BaseController {
           	'method' => 'POST',
           	'url' => 'formmanager/update/'.$id,
           	'model' => $model,
+          	'data' => [ 'application_id' => $model->application_id, 'step_id' => $model->step_id]
       	]);
 
 		return View::make('dynaflow::formmanager.form', compact('form'));
