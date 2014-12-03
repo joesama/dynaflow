@@ -4,8 +4,8 @@
 @section('content')
 
 <h2>Detail Form Manager
-    <a href="{{ URL::to('detailformmanager/preview/'.$form_manager_id.'?modul=2')}}" class="btn btn-primary btn-lg btn-sm  pull-right" style="margin-left:10px" role="button">Preview</a>
-    <a href="{{ URL::to('detailformmanager/create/'.$form_manager_id.'?modul=2')}}" class="btn btn-primary btn-lg btn-sm  pull-right" role="button">Add</a>
+    <a href="{{ URL::to('detailformmanager/preview/'.$form_manager_id.'?modul=4')}}" class="btn btn-primary btn-lg btn-sm  pull-right" style="margin-left:10px" role="button">Preview</a>
+    <a href="{{ URL::to('detailformmanager/create/'.$form_manager_id.'?modul=4')}}" class="btn btn-primary btn-lg btn-sm  pull-right" role="button">Add</a>
 </h2>
 
 <table class="table table-bordered table-condensed">
@@ -29,7 +29,7 @@
                 <td>{{ $value->value }}</td>
                 <td>{{ $value->require }}</td>
                 <td>{{ $value->created_at }} </td>
-                <td style="width:230"><a href="{{ URL::to('detailformmanager/edit/'.$value->id)}}?modul=2">Update</a> | 
+                <td style="width:230"><a href="{{ URL::to('detailformmanager/edit/'.$value->id)}}?modul=4">Update</a> | 
                     <a href="{{ URL::to('detailformmanager/delete/' . $value->id) }}" onclick="return confirm('Anda yakin ingin menghapus Form Manager ini?')">Delete</a></td>
             </tr>
         @endforeach

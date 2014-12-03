@@ -11,4 +11,4 @@ modules:
         - AcceptanceHelper
     config:
         PhpBrowser:
-            url: 'http://localhost:81/3f/'
+            url: 'http://localhost/itbm/'

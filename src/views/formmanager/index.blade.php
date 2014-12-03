@@ -22,8 +22,8 @@
                 <td>{{ $value->application->name }}</td>
                 <td>{{ $value->flowStep->name }}</td>
                 <td>{{ $value->created_at }} </td>
-                <td style="width:230"><a href="{{ URL::to('formmanager/edit/'.$value->id)}}?modul=2">Update</a> | 
-                    <a href="{{ URL::to('detailformmanager/index/'.$value->id)}}?modul=2">Detail Form</a> |
+                <td style="width:230"><a href="{{ URL::to('formmanager/edit/'.$value->id)}}?modul=4">Update</a> | 
+                    <a href="{{ URL::to('detailformmanager/index/'.$value->id)}}?modul=4">Detail Form</a> |
                     <a href="{{ URL::to('formmanager/delete/' . $value->id) }}" onclick="return confirm('Anda yakin ingin menghapus Form Manager ini?')">Delete</a></td>
             </tr>
         @endforeach
