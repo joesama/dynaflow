@@ -13,10 +13,10 @@
         "illuminate/support": "4.1.*",
         "orchestra/foundation": "2.2.",
         "orchestra/control": "2.2.*",
-        "kris/laravel-form-builder": "0.*"
+        "kris/laravel-form-builder": "0.*",
+        "codeception/codeception": "*"
     },
     "require-dev": {
-        "codeception/codeception": "~2.0",
         "orchestra/testbench": "2.2.*"
     },
     "autoload": {
