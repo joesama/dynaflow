@@ -3,16 +3,14 @@
     "description": "",
     "authors": [
         {
-            "name": "nurrohman",
-            "email": "nurrohman@javan.co.id"
+            "name": "sohib",
+            "email": "sohib@javan.co.id"
         }
     ],
     "require": {
         "php": ">=5.3.0",
         "symfony/yaml": "2.*",
         "illuminate/support": "4.1.*",
-        "orchestra/foundation": "2.2.",
-        "orchestra/control": "2.2.*",
         "kris/laravel-form-builder": "0.*",
         "codeception/codeception": "*"
     },
