@@ -95,7 +95,14 @@ class SysDetailFormManagerController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$model = SysDetailFormManager::find($id);
+		$form = \FormBuilder::create('Javan\Dynaflow\FormBuilder\SysDetailFormManagerForm', [
+          	'method' => 'POST',
+          	'url' => 'detailformmanager/update/'.$id,
+          	'model' => $model,
+      	]);
+
+		return View::make('dynaflow::detailformmanager.form', compact('form'));
 	}
 
 
@@ -107,7 +114,20 @@ class SysDetailFormManagerController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$command = new UpdateSysDetailFormManagerCommand(Input::all() + array('id' => $id));
+		$form_manager_id = SysDetailFormManager::find($id)->form_manager_id;
+
+        try {
+            $result = $this->commandBus->execute($command);
+        } catch(ValidationException $e)
+        {
+            return Redirect::to('/detailformmanager/edit/'.$form_manager_id.'?modul=1')->withErrors( $e->getErrors() );
+        } catch(\DomainException $e)
+        {
+            return Redirect::to('detailformmanager/edit'.$form_manager_id.'?modul=1')->withErrors( $e->getErrors() );
+        }
+
+        return Redirect::to('detailformmanager/index/'.$form_manager_id.'?modul=1')->with(['message' => 'success!']);
 	}
 
 
