@@ -16,6 +16,7 @@ class SysDetailFormManagerForm extends Form
                 'label' => 'Type',
                 'choices' => SysDetailFormManager::getType(),
                 'empty_value' => [''=>''],
+                'selected' => (isset($this->model->type))?$this->model->type:'',
                 'multiple' => false
             ])
            
@@ -26,12 +27,6 @@ class SysDetailFormManagerForm extends Form
             ->add('value', 'text', [
                 'label'=>'Value'
             ])
-
-            // ->add('gender', 'choice', [
-            //     'choices' => [1 => 'Yes', 2 => 'Female'],
-            //     'selected' => 1,
-            //     'restore_exception_handler(oid)d' => true
-            // ])
 
         	->add('save', 'submit', [
                 'attr' => ['class' => 'btn btn-primary']

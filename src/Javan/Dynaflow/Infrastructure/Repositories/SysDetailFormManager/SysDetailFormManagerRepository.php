@@ -39,11 +39,13 @@ class SysDetailFormManagerRepository implements SysDetailFormManagerRepositoryIn
      * @param $formManager
      * @return boolean
      */
-    public function update($formManager)
+    public function update($detailFormManager)
     {
-        $data = SysFormManager::find($FormManager->id);
-        $data->application_id = $formManager->application_id;
-        $data->step_id = $formManager->step_id;
+        $data = SysDetailFormManager::find($detailFormManager->id);
+        $data->title = $detailFormManager->title;
+        $data->type = $detailFormManager->type;
+        $data->name = $detailFormManager->name;
+        $data->value = $detailFormManager->value;
         $data->save();
     } 
     
