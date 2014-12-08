@@ -14,9 +14,6 @@
         "kris/laravel-form-builder": "0.*",
         "codeception/codeception": "*"
     },
-    "require-dev": {
-        "orchestra/testbench": "2.2.*"
-    },
     "autoload": {
         "classmap": [
             "src/migrations",
