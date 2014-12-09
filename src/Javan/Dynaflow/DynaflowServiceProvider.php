@@ -48,13 +48,18 @@ class DynaflowServiceProvider extends ServiceProvider {
 		  	$loader = \Illuminate\Foundation\AliasLoader::getInstance();
 		  	$loader->alias('CreateSysFlowCommand', 'Javan\Dynaflow\Application\Identity\SysFlow\CreateSysFlowCommand');
 		  	$loader->alias('UpdateSysFlowCommand', 'Javan\Dynaflow\Application\Identity\SysFlow\UpdateSysFlowCommand');
+		  	
 		  	$loader->alias('CreateSysFlowStepCommand', 'Javan\Dynaflow\Application\Identity\SysFlowStep\CreateSysFlowStepCommand');
 		  	$loader->alias('UpdateSysFlowStepCommand', 'Javan\Dynaflow\Application\Identity\SysFlowStep\UpdateSysFlowStepCommand');
+		  	
 		  	$loader->alias('CreateSysApplicationCommand', 'Javan\Dynaflow\Application\Identity\SysApplication\CreateSysApplicationCommand');
 		  	$loader->alias('UpdateSysApplicationCommand', 'Javan\Dynaflow\Application\Identity\SysApplication\UpdateSysApplicationCommand');
+		  	
 		  	$loader->alias('CreateSysFlowManagerCommand', 'Javan\Dynaflow\Application\Identity\SysFlowManager\CreateSysFlowManagerCommand');
+		  	
 		  	$loader->alias('CreateSysFormManagerCommand', 'Javan\Dynaflow\Application\Identity\SysFormManager\CreateSysFormManagerCommand');
 		  	$loader->alias('UpdateSysFormManagerCommand', 'Javan\Dynaflow\Application\Identity\SysFormManager\UpdateSysFormManagerCommand');
+		  	
 		  	$loader->alias('CreateSysDetailFormManagerCommand', 'Javan\Dynaflow\Application\Identity\SysDetailFormManager\CreateSysDetailFormManagerCommand');
 		  	$loader->alias('UpdateSysDetailFormManagerCommand', 'Javan\Dynaflow\Application\Identity\SysDetailFormManager\UpdateSysDetailFormManagerCommand');
 		});
