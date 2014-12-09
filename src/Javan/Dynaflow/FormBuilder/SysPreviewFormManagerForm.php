@@ -1,6 +1,6 @@
 <?php namespace Javan\Dynaflow\FormBuilder;
 
-use Kris\LaravelFormBuilder\Form;
+use Javan\LaravelFormBuilder\Form;
 use Javan\Dynaflow\Domain\Model\SysDetailFormManager;
 
 class SysPreviewFormManagerForm extends Form

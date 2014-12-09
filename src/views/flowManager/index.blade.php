@@ -38,6 +38,7 @@ $(function() {
                      $('#sortable').show();
                      var $container = $("#sortable");
                     $container.load("../content/{{$flow_id}}");
+                    //setInterval(function(){$container, 5000);
                 }
             });
         }
