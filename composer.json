@@ -13,7 +13,7 @@
         "illuminate/support": "4.1.*",
         "orchestra/foundation": "2.2.",
         "orchestra/control": "2.2.*",
-        "kris/laravel-form-builder": "0.*",
+        "javan/laravel-form-builder": "1.0.*@dev",
         "codeception/codeception": "*"
     },
     "require-dev": {
